@@ -31,6 +31,11 @@
     <main class="result-main">
       <div class="result-intro"><p class="eyebrow">YOUR CRYSTAL PROFILE</p><h1 id="resultTitle">你的水晶分析报告</h1><p id="resultSummary" class="muted"></p><div id="resultTraits" class="traits"></div></div>
 
+      <section class="poem-card" aria-labelledby="poemTitle">
+        <div class="poem-art"><p class="eyebrow">A POEM FOR YOU</p><h2 id="poemTitle">一首写给此刻的五言诗</h2><div id="resultPoem" class="result-poem"></div><span class="poem-seal">晶遇</span></div>
+        <div class="poem-reading"><h3>诗意解析</h3><div id="poemExplanation"></div><p class="fine">诗句由命盘、愿望与性格规则组合生成，同一份结果会保持一致。</p></div>
+      </section>
+
       <section class="analysis-card report-card">
         <div class="section-title"><p class="eyebrow">01 · BAZI & PERSONALITY</p><h2>命盘与性格反馈</h2><p class="muted">出生信息呈现先天五行倾向；问卷反映你此刻想加强、补足或靠近的状态。</p></div>
         <div id="pillars" class="pillars"></div>
@@ -40,14 +45,14 @@
       </section>
 
       <section class="recommend-section">
-        <div class="section-title"><p class="eyebrow">02 · YOUR CRYSTALS</p><h2>适合你的 3 种珠材</h2><p class="muted">分别回应命盘的平衡方向、你最想提升的目标，以及性格中正在寻找的状态。</p></div>
+        <div class="section-title"><p class="eyebrow">02 · YOUR CRYSTALS</p><h2>适合你的 3 种珠材</h2><p class="muted">每一种都由命盘、愿望、性格与审美共同评分，再从 78 种珠材中选出。</p></div>
         <div id="recommendedMaterials" class="recommend-grid"></div>
       </section>
 
       <section class="design-section">
         <div class="section-title"><p class="eyebrow">03 · TWO WAYS TO WEAR</p><h2>两种佩戴方案</h2></div>
         <div class="result-grid">
-          <article class="design-card pure-card"><div class="design-title"><div><span class="version-no">01</span><p class="eyebrow">MONOCHROME STACK</p><h2>纯色叠戴 · 三串成组</h2></div><span class="tag">每材一串</span></div><div class="result-stage"><canvas id="pureStack" width="900" height="900" aria-label="三串纯色水晶叠戴效果图"></canvas></div><div id="pureLegend" class="legend"></div><p id="pureReason" class="design-reason"></p><button class="secondary save-design" data-download="pure">保存叠戴版图片</button></article>
+          <article class="design-card pure-card"><div class="design-title"><div><span class="version-no">01</span><p class="eyebrow">SINGLE CRYSTAL SERIES</p><h2>单色系列 · 分串预览</h2></div><span class="tag">左右滑动</span></div><div class="single-carousel"><div id="pureTrack" class="carousel-track" aria-label="三款单色手串，可左右滑动"></div><button class="carousel-arrow prev" id="purePrev" aria-label="上一款">‹</button><button class="carousel-arrow next" id="pureNext" aria-label="下一款">›</button></div><div id="pureDots" class="carousel-dots"></div><div id="pureLegend" class="legend"></div><p id="pureReason" class="design-reason"></p><button class="secondary save-design" data-download="pure">保存当前单色手串</button></article>
           <article class="design-card mixed-card"><div class="design-title"><div><span class="version-no">02</span><p class="eyebrow">BALANCED PALETTE</p><h2>配色单串 · 克制点缀</h2></div><span class="tag">主色约 80%</span></div><div class="result-stage"><canvas id="mixedBracelet" width="900" height="900" aria-label="配色水晶手串效果图"></canvas></div><div id="mixedLegend" class="legend"></div><p id="mixedReason" class="design-reason"></p><button class="primary save-design" data-download="mixed">保存配色版图片</button></article>
         </div>
       </section>
