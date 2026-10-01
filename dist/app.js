@@ -1,296 +1,60 @@
-const beadData = [
-  ['紫水晶','水晶','火','紫色','#9e81be','沉静思考','通透紫色，带自然色带',0],
-  ['薰衣草紫晶','水晶','火','浅紫色','#b6a0cf','舒缓节奏','柔和浅紫，清透轻盈',0,'brightness(1.16) saturate(.72)'],
-  ['紫黄晶','水晶','土','紫金色','#b89573','平衡取舍','紫色与金黄色自然过渡',0,'hue-rotate(24deg) saturate(.8)'],
-  ['粉晶','水晶','火','粉色','#d9a6ad','温柔表达','柔雾粉色，半透明质感',1],
-  ['草莓晶','水晶','火','莓粉色','#c7838c','连接与善意','淡粉色，细密红色包裹体',13],
-  ['白水晶','水晶','金','透明色','#d4dfdc','清晰与留白','清透无色，内部可见冰裂纹',2],
-  ['发晶','水晶','金','金透明色','#cfb271','目标感','透明晶体内呈针状包裹体',8,'saturate(.78)'],
-  ['黄水晶','水晶','土','黄色','#d4b15d','自信与主动','浅黄到蜜金，通透明亮',8],
-  ['茶晶','水晶','土','茶棕色','#837568','沉稳与秩序','烟茶色透明晶体',9],
-  ['幽灵水晶','水晶','木','绿透明色','#789886','层次与成长','透明晶体内呈山景状包裹体',7,'saturate(.65)'],
-  ['黑曜石','火山玻璃','水','黑色','#30343b','边界与安定','深黑玻璃光泽',3],
-  ['雪花黑曜石','火山玻璃','水','黑白色','#55585c','冷静判断','黑色底中有灰白斑点',3,'brightness(1.25) contrast(.75)'],
-  ['金曜石','火山玻璃','土','黑金色','#6b5b3c','稳定行动','黑色底上带金色光带',5,'brightness(.65) saturate(.55)'],
-  ['红玛瑙','玛瑙玉髓','火','红色','#b65d49','行动与勇气','深红至橙红，细腻色带',4],
-  ['南红玛瑙','玛瑙玉髓','火','柿红色','#c55c45','笃定与热忱','温润柿红，颜色浓郁',4,'brightness(1.08) saturate(.82)'],
-  ['盐源玛瑙','玛瑙玉髓','土','多彩色','#a68178','包容与变化','粉、紫、黄等低饱和色交织',14,'saturate(.55)'],
-  ['蓝纹玛瑙','玛瑙玉髓','水','浅蓝色','#9fbfca','温和沟通','浅蓝与白色细纹相间',6,'brightness(1.08) saturate(.6)'],
-  ['蓝玉髓','玛瑙玉髓','水','雾蓝色','#7caebc','从容表达','均匀雾蓝，柔和通透',6,'saturate(.78)'],
-  ['白玉髓','玛瑙玉髓','金','乳白色','#d7d6ce','简洁从容','乳白半透明，质感细腻',11,'saturate(.35)'],
-  ['樱花玛瑙','玛瑙玉髓','火','樱粉色','#d3a2a4','柔韧与浪漫','透明底中有花朵状包裹体',13,'brightness(1.12) saturate(.6)'],
-  ['虎眼石','石英岩','土','金棕色','#b08b4c','坚定与专注','金棕色，流动猫眼光带',5],
-  ['鹰眼石','石英岩','水','蓝黑色','#4b6671','观察与洞察','蓝灰色猫眼光带',5,'hue-rotate(155deg) saturate(.7)'],
-  ['红虎眼','石英岩','火','红棕色','#8f5040','执行与坚持','红棕色猫眼光带',5,'hue-rotate(315deg) saturate(.85)'],
-  ['东陵玉','石英岩','木','绿色','#69a287','生长与开放','柔和绿色，细小闪光颗粒',7],
-  ['海蓝宝','水晶','水','海蓝色','#9bcbd5','平和沟通','浅海蓝色，通透柔润',6],
-  ['托帕石','水晶','水','冰蓝色','#a8cfdb','清醒表达','冰蓝色透明晶体',6,'brightness(1.14) saturate(.72)'],
-  ['萤石','水晶','木','紫绿色','#8da898','好奇与创造','紫绿交织，透明色带',14],
-  ['月光石','长石','金','乳白色','#c1d1db','觉察与柔和','乳白底色，带蓝色晕彩',11],
-  ['拉长石','长石','水','灰蓝色','#71838b','想象与转换','灰色底上呈蓝绿晕彩',11,'brightness(.72) saturate(1.15)'],
-  ['太阳石','长石','火','橙金色','#c58c57','活力与乐观','橙金色底，带细密闪光',8,'hue-rotate(340deg) saturate(.85)'],
-  ['青金石','矿石','水','深蓝色','#445c9a','真实表达','深蓝底色，带金色星点',10],
-  ['方钠石','矿石','水','蓝白色','#516b9b','理性沟通','蓝色底中有白色纹理',10,'brightness(1.08) saturate(.7)'],
-  ['孔雀石','矿石','木','深绿色','#3f805e','更新与成长','浓绿色同心条纹',7,'brightness(.75) saturate(1.35)'],
-  ['绿松石','矿石','木','蓝绿色','#6aa8a0','坦率与自由','蓝绿色底，常见深色纹理',7,'hue-rotate(35deg) saturate(.85)'],
-  ['白松石','矿石','金','白灰色','#d1d5cd','简洁与从容','白色底，灰色网状纹理',15],
-  ['石榴石','矿石','火','酒红色','#823c50','热忱与坚持','深酒红色，光下透红',12],
-  ['橄榄石','矿石','木','黄绿色','#91a85e','轻快与更新','清透黄绿色晶体',7,'hue-rotate(330deg) saturate(.85)'],
-  ['天河石','长石','木','湖蓝色','#79aaa6','真实与松弛','湖蓝色底，常有白色纹理',6,'hue-rotate(42deg) saturate(.7)'],
-  ['和田白玉','玉石','金','脂白色','#ddd9ca','温润与克制','温润乳白，油脂光泽',11,'saturate(.25) brightness(1.05)'],
-  ['和田碧玉','玉石','木','深绿色','#567862','稳定与包容','沉静碧绿，质地细腻',7,'brightness(.7) saturate(.65)'],
-  ['翡翠','玉石','木','翠绿色','#4f9a6b','生机与自信','翠绿至白绿，通透温润',7,'brightness(.9) saturate(1.2)'],
-  ['岫玉','玉石','木','浅绿色','#9fb69e','柔和与适应','淡绿或黄绿色，柔润通透',7,'brightness(1.18) saturate(.45)'],
-  ['独山玉','玉石','土','多彩色','#978c79','包容与平衡','绿、白、紫等颜色共生',14,'saturate(.45) brightness(.95)'],
-  ['淡水珍珠','有机珠材','金','珍珠白','#e2ded2','优雅与圆融','珍珠光泽，每颗形态略有差异',11,'saturate(.2) brightness(1.12)'],
-  ['白贝母','有机珠材','金','虹彩白','#e4e0d8','细腻与轻盈','乳白底带虹彩光泽',11,'saturate(.4) brightness(1.18)'],
-  ['小叶紫檀','木质珠材','木','紫棕色','#65433b','沉着与专注','深紫棕木纹，色泽温厚',9,'hue-rotate(325deg) saturate(.7) brightness(.72)'],
-  ['沉香木','木质珠材','木','深棕色','#55483e','安静与收敛','深浅交错的天然木纹',9,'saturate(.5) brightness(.66)'],
-  ['星月菩提','植物籽实','土','米白色','#d7caae','耐心与日常','米白底上有细小深色星点',15,'sepia(.32) saturate(.55)']
+const beadData=[
+['紫水晶','石英水晶','火','紫色','#9272b5','沉静与洞察','通透紫色，常见自然色带',0],['薰衣草紫晶','石英水晶','火','浅紫色','#b5a0ce','舒缓与柔和','低饱和浅紫，清透轻盈',0,'brightness(1.16) saturate(.7)'],['紫黄晶','石英水晶','土','紫金色','#ad8c78','平衡与取舍','紫色与金黄色自然过渡',0,'hue-rotate(22deg) saturate(.75)'],['粉晶','石英水晶','火','粉色','#d7a4ae','温柔与关系','柔雾粉色，半透明质感',1],['草莓晶','石英水晶','火','莓粉色','#c47e89','连接与热情','粉红晶体内有细密包裹体',13],['白水晶','石英水晶','金','透明色','#d6dfdc','清晰与专注','清透无色，常见冰裂纹',2],['金发晶','石英水晶','金','金透明色','#d1af58','目标与资源','透明晶体内有金色针状包裹体',8],['钛晶','石英水晶','金','浓金色','#c99c43','行动与魄力','金色发丝密集，光泽强烈',8,'saturate(1.15) contrast(1.05)'],['铜发晶','石英水晶','火','铜红色','#b87855','执行与活力','透明晶体内有铜红针状包裹体',8,'hue-rotate(330deg) saturate(.9)'],['黑发晶','石英水晶','水','黑透明色','#52545a','边界与决断','透明晶体内有黑色针状包裹体',2,'brightness(.62)'],['银发晶','石英水晶','金','银灰色','#aeb7b8','理性与条理','透明晶体内有银灰针状包裹体',2,'saturate(.2) brightness(.9)'],['绿幽灵','石英水晶','木','绿透明色','#6d987c','成长与积累','透明晶体内有绿色山景状包裹体',7],['红幽灵','石英水晶','火','红透明色','#a96965','热情与复原','透明晶体内有红色山景状包裹体',13,'saturate(.68)'],['白幽灵','石英水晶','金','白透明色','#d6d8d0','整理与重启','透明晶体内有白色雾状包裹体',2,'saturate(.25)'],['黄水晶','石英水晶','土','黄色','#d4b15d','自信与丰盛','浅黄到蜜金，通透明亮',8],['茶晶','石英水晶','土','茶棕色','#837568','沉稳与秩序','烟茶色透明晶体',9],['黑水晶','石英水晶','水','深黑色','#393d42','坚定与收敛','深烟黑色石英，光泽沉静',9,'brightness(.48) saturate(.3)'],['花园水晶','石英水晶','木','多彩透明色','#829381','层次与想象','透明晶体内有景观状包裹体',7,'saturate(.5)'],['超七水晶','石英水晶','火','紫红多彩','#8e657e','整合与突破','多种矿物共生形成紫红层次',0,'hue-rotate(330deg) saturate(.85)'],['胶花水晶','石英水晶','火','橙红透明色','#c98267','创造与表达','透明晶体内有花状矿物包裹体',4,'brightness(1.12) saturate(.7)'],['星光粉晶','石英水晶','火','星光粉色','#d3a0ab','自爱与亲和','粉色底可见柔和星光效应',1,'contrast(.9)'],['蓝针水晶','石英水晶','水','冰蓝透明色','#9bbacb','直觉与表达','透明晶体内有蓝色针状包裹体',6,'brightness(1.08) saturate(.55)'],
+['红玛瑙','玛瑙玉髓','火','红色','#b65d49','勇气与行动','深红至橙红，细腻色带',4],['南红玛瑙','玛瑙玉髓','火','柿红色','#c55c45','笃定与热忱','温润柿红，颜色浓郁',4,'brightness(1.08) saturate(.82)'],['盐源玛瑙','玛瑙玉髓','土','多彩色','#a68178','包容与变化','粉、紫、黄等低饱和色交织',14,'saturate(.55)'],['黄玛瑙','玛瑙玉髓','土','蜜黄色','#cfad63','乐观与稳定','蜜黄半透明，纹理柔和',8,'saturate(.75)'],['白玉髓','玛瑙玉髓','金','乳白色','#d7d6ce','简洁与从容','乳白半透明，质感细腻',11,'saturate(.3)'],['蓝纹玛瑙','玛瑙玉髓','水','浅蓝色','#9fbfca','温和沟通','浅蓝与白色细纹相间',6,'brightness(1.08) saturate(.6)'],['蓝玉髓','玛瑙玉髓','水','雾蓝色','#7caebc','从容表达','均匀雾蓝，柔和通透',6,'saturate(.78)'],['红玉髓','玛瑙玉髓','火','橙红色','#c86b48','动力与自信','橙红色半透明，色泽明快',4,'brightness(1.08)'],['樱花玛瑙','玛瑙玉髓','火','樱粉色','#d3a2a4','柔韧与浪漫','透明底中有花朵状包裹体',13,'brightness(1.12) saturate(.6)'],['苔藓玛瑙','玛瑙玉髓','木','苔绿色','#718f77','耐心与生长','透明底中有苔藓状绿色纹理',7,'saturate(.55)'],['水草玛瑙','玛瑙玉髓','木','绿褐色','#7e846e','适应与沉着','内部纹理如水草舒展',7,'hue-rotate(345deg) saturate(.45)'],['天眼玛瑙','玛瑙玉髓','土','黑白棕色','#756a5f','观察与守界','同心圆眼状天然纹理',9,'contrast(1.1)'],['缠丝玛瑙','玛瑙玉髓','土','棕白色','#9b7f6c','秩序与持续','多层细密条带环绕',9,'brightness(1.08)'],['波斯瓦纳玛瑙','玛瑙玉髓','土','灰粉色','#9b8583','安定与适应','灰、粉、棕色细密条纹',13,'saturate(.35) brightness(.86)'],
+['月光石','长石','金','乳白色','#c1d1db','觉察与柔和','乳白底色，带蓝色晕彩',11],['白月光石','长石','金','亮白色','#d8dedb','清润与安宁','白色底，光线下有柔和蓝光',11,'brightness(1.12) saturate(.45)'],['灰月光石','长石','水','灰蓝色','#87969d','内省与直觉','烟灰底色，带蓝白晕光',11,'brightness(.76) saturate(.65)'],['黑月光石','长石','水','深灰色','#515d63','边界与直觉','深灰至黑色，浮现银蓝光',11,'brightness(.48) saturate(.7)'],['橙月光石','长石','土','蜜桃色','#c7967f','滋养与松弛','蜜桃橙色，带柔和月光效应',11,'sepia(.38) saturate(.72)'],['彩虹月光石','长石','金','虹彩白','#ccd5dc','灵感与转换','浅色底呈蓝绿虹彩',11,'saturate(.75) contrast(1.04)'],['拉长石','长石','水','灰蓝色','#71838b','想象与转换','灰色底上呈蓝绿晕彩',11,'brightness(.72) saturate(1.15)'],['太阳石','长石','火','橙金色','#c58c57','活力与乐观','橙金色底，带细密闪光',8,'hue-rotate(340deg) saturate(.85)'],['天河石','长石','木','湖蓝色','#79aaa6','真实与松弛','湖蓝色底，常有白色纹理',6,'hue-rotate(42deg) saturate(.7)'],
+['萤石','矿物晶石','木','紫绿色','#8da898','专注与学习','紫绿交织，透明色带',14],['绿萤石','矿物晶石','木','清绿色','#75a886','整理与专注','清透绿色，常见色带',7,'brightness(1.06) saturate(.7)'],['海蓝宝','矿物晶石','水','海蓝色','#9bcbd5','平和与沟通','浅海蓝色，通透柔润',6],['摩根石','矿物晶石','火','浅粉色','#d4abb2','温柔与接纳','浅粉至蜜桃色，透明柔和',1,'brightness(1.08) saturate(.55)'],['祖母绿','矿物晶石','木','翠绿色','#3d8a64','成长与信心','浓郁翠绿，常见天然包裹体',7,'brightness(.78) saturate(1.25)'],['蓝托帕石','矿物晶石','水','冰蓝色','#91c4d3','清醒与表达','冰蓝色透明晶体',6,'brightness(1.1) saturate(.82)'],['橄榄石','矿物晶石','木','黄绿色','#91a85e','更新与轻快','清透黄绿色晶体',7,'hue-rotate(330deg) saturate(.85)'],['石榴石','矿物晶石','火','酒红色','#823c50','热忱与坚持','深酒红色，光下透红',12],['黑碧玺','矿物晶石','水','黑色','#33383d','防护与边界','深黑柱状晶体，光泽沉稳',3,'brightness(.72)'],['粉碧玺','矿物晶石','火','玫粉色','#c06f83','亲和与情感','粉红至玫红，颜色明亮',13,'saturate(.86)'],['绿碧玺','矿物晶石','木','深绿色','#4f8166','活力与成长','深浅绿色透明晶体',7,'brightness(.76) saturate(.9)'],['西瓜碧玺','矿物晶石','木','粉绿色','#9d8c82','平衡与连接','粉红与绿色同晶共生',14,'saturate(.6)'],['青金石','矿物晶石','水','深蓝色','#445c9a','真实与表达','深蓝底色，带金色星点',10],['方钠石','矿物晶石','水','蓝白色','#516b9b','理性与沟通','蓝色底中有白色纹理',10,'brightness(1.08) saturate(.7)'],['蓝晶石','矿物晶石','水','靛蓝色','#506f9a','条理与表达','蓝色片状晶体，纹理清晰',10,'brightness(1.12)'],['磷灰石','矿物晶石','水','蓝绿色','#4b9aaa','动力与表达','蓝绿透明晶体，色泽鲜亮',6,'saturate(1.15) brightness(.9)'],['孔雀石','矿物晶石','木','深绿色','#3f805e','更新与成长','浓绿色同心条纹',7,'brightness(.75) saturate(1.35)'],['蓝铜矿','矿物晶石','水','深蓝色','#345a8a','洞察与专注','深蓝色矿物结晶，颜色浓郁',10,'brightness(.82)'],['硅孔雀石','矿物晶石','木','蓝绿色','#53958e','流动与表达','蓝绿相间，纹理自然',7,'hue-rotate(35deg) saturate(.8)'],['海纹石','矿物晶石','水','海纹蓝','#79b7c4','放松与沟通','浅蓝底有白色海浪状纹理',6,'brightness(1.08) saturate(.66)'],['舒俱来石','矿物晶石','火','深紫色','#6e4d80','接纳与转化','深紫至玫紫，纹理丰富',0,'brightness(.76) saturate(.8)'],['蔷薇辉石','矿物晶石','火','蔷薇粉','#b77886','修复与关系','蔷薇粉底带黑色纹理',13,'saturate(.62)'],['红纹石','矿物晶石','火','粉红色','#cf7d87','热情与自爱','粉红底带浅色条纹',13,'brightness(1.05) saturate(.78)'],['黄铁矿','矿物晶石','金','金属金色','#a88948','执行与资源','金黄色金属光泽晶体',5,'saturate(.85) brightness(.9)'],['赤铁矿','矿物晶石','金','铁灰色','#555a5e','落地与执行','铁灰至银黑金属光泽',3,'brightness(.84) saturate(.2)'],['虎眼石','矿物晶石','土','金棕色','#b08b4c','专注与事业','金棕色流动猫眼光带',5],['鹰眼石','矿物晶石','水','蓝黑色','#4b6671','观察与判断','蓝灰色猫眼光带',5,'hue-rotate(155deg) saturate(.7)'],['红虎眼','矿物晶石','火','红棕色','#8f5040','执行与坚持','红棕色猫眼光带',5,'hue-rotate(315deg) saturate(.85)'],
+['黑曜石','火山玻璃','水','黑色','#30343b','边界与安定','深黑玻璃光泽',3],['雪花黑曜石','火山玻璃','水','黑白色','#55585c','冷静与判断','黑色底中有灰白斑点',3,'brightness(1.25) contrast(.75)'],['金曜石','火山玻璃','土','黑金色','#6b5b3c','稳定与行动','黑色底上带金色光带',5,'brightness(.65) saturate(.55)'],['银曜石','火山玻璃','金','黑银色','#64696c','秩序与边界','黑色底上带银色光带',3,'brightness(1.1) saturate(.2)'],['彩虹黑曜石','火山玻璃','水','虹彩黑色','#514b5d','整合与守护','黑色底在光下呈彩色晕光',3,'hue-rotate(260deg) saturate(.55)']
 ];
-
-const crystals = beadData.map((x,id)=>({
-  id,name:x[0],category:x[1],element:x[2],color:x[3],hex:x[4],meaning:x[5],texture:x[6],visual:x[7],filter:x[8]||'none'
-}));
-
-const questions = [
-  ['在忙碌的一天结束后，你更想……',['一个人安静待着，慢慢恢复能量','找熟悉的人聊聊天，分享今天']],
-  ['面对一个新机会，你通常会……',['先收集信息，想清楚再行动','先迈出一步，在尝试中寻找答案']],
-  ['做重要决定时，你更在意……',['是否符合逻辑，结果是否可靠','自己的感受，以及对人的影响']],
-  ['面对突然改变的计划，你会……',['希望尽快重新安排，找回节奏','顺势调整，说不定有新的发现']],
-  ['在人际关系里，你更希望……',['保留自己的空间和边界','建立更深的理解与连接']],
-  ['此刻，你最想提醒自己的是……',['放慢一点，给自己一些余地','勇敢一点，把想法变成行动']],
-  ['你更容易被哪种风格吸引？',['安静克制，低饱和的配色','鲜明有趣，有一抹亮色']],
-  ['接下来的一段时间，你希望……',['专注内在，建立稳定的日常','向外探索，迎接新的可能']]
+const crystals=beadData.map((x,id)=>({id,name:x[0],category:x[1],element:x[2],color:x[3],hex:x[4],meaning:x[5],texture:x[6],visual:x[7],filter:x[8]||'none'}));
+const questions=[
+['在忙碌的一天结束后，你更想……',['一个人安静待着，慢慢恢复能量','找熟悉的人聊聊天，分享今天']],
+['面对一个新机会，你通常会……',['先收集信息，想清楚再行动','先迈出一步，在尝试中寻找答案']],
+['做重要决定时，你更在意……',['是否符合逻辑，结果是否可靠','自己的感受，以及对人的影响']],
+['面对突然改变的计划，你会……',['希望尽快重新安排，找回节奏','顺势调整，说不定有新的发现']],
+['在人际关系里，你更希望……',['保留自己的空间和边界','建立更深的理解与连接']],
+['此刻，你最想提醒自己的是……',['放慢一点，给自己一些余地','勇敢一点，把想法变成行动']],
+['你更容易被哪种风格吸引？',['安静克制，低饱和的配色','鲜明有趣，有一抹亮色']],
+['接下来的一段时间，你希望……',['专注内在，建立稳定的日常','向外探索，迎接新的可能']],
+['此刻，你最想提升哪个方向？',['财运与资源','事业与行动','内心稳定','感情与关系','表达与人缘','学习与成长']]
 ];
-
-const byName = name => crystals.find(c=>c.name===name);
-const state = {
-  view:'quiz', q:0, answers:Array(8).fill(null),
-  birth:{date:'',time:'12:00',unknown:false,wrist:16,size:8}, chart:null,
-  pureRecipe:[{id:0,n:20}], mixedRecipe:[{id:0,n:16},{id:11,n:2},{id:27,n:2}],
-  result:false, libraryFilter:'全部', search:''
-};
-try{
-  const saved=JSON.parse(sessionStorage.getItem('jingyu-result'));
-  if(saved?.result) Object.assign(state,saved);
-}catch{}
-const $ = s => document.querySelector(s);
-const sprite = new Image();
-sprite.src = 'assets/beads.png';
-
-function beadStyle(id){
-  const c=crystals[id];
-  return `background-position:${c.visual%4*100/3}% ${Math.floor(c.visual/4)*100/3}%;filter:${c.filter}`;
-}
-function bead(id){ return `<span class="bead" style="${beadStyle(id)}"></span>`; }
-function legend(recipe){
-  return recipe.map(r=>`<span><i style="background:${crystals[r.id].hex}"></i>${crystals[r.id].name} ${r.n} 颗</span>`).join('');
-}
-
-function renderQuiz(){
-  const q=questions[state.q];
-  $('#panel').innerHTML=`<div class="panel-head"><span>性格探索</span><span>${String(state.q+1).padStart(2,'0')} / 08 · 约 2 分钟</span></div>
-  <div class="progress"><div style="width:${(state.q+1)/8*100}%"></div></div>
-  <p class="question-kicker">${['能量来源','行动方式','决策偏好','生活节奏','人际边界','当下心愿','审美偏好','未来期待'][state.q]}</p>
-  <h2>${q[0]}</h2><p class="muted">没有标准答案，选择更接近此刻的自己。</p>
-  <div class="answers">${q[1].map((a,i)=>`<button class="answer ${state.answers[state.q]===i?'selected':''}" data-answer="${i}" aria-pressed="${state.answers[state.q]===i}"><i>${i?'B':'A'}</i><span>${a}</span></button>`).join('')}</div>
-  <div class="actions"><button class="secondary" id="prev" ${state.q===0?'disabled':''}>上一题</button><button class="primary" id="next" ${state.answers[state.q]===null?'disabled':''}>${state.q===7?'继续填写出生信息':'下一题'}</button></div>
-  <p class="fine">你的选择与出生信息仅在当前页面计算，不上传服务器。</p>`;
-  document.querySelectorAll('[data-answer]').forEach(b=>b.onclick=()=>{state.answers[state.q]=+b.dataset.answer;state.result=false;renderQuiz()});
-  $('#prev').onclick=()=>{state.q--;renderQuiz()};
-  $('#next').onclick=()=>state.q<7?(state.q++,renderQuiz()):show('birth');
-}
-
-function show(view, push=true){
-  if(view==='result'&&!state.result){
-    if(state.answers.includes(null)){state.q=state.answers.indexOf(null);view='quiz'}else view='birth';
-  }
-  state.view=view;
-  const isResult=view==='result';
-  $('#appShell').hidden=isResult;
-  $('#resultPage').hidden=!isResult;
-  document.body.classList.toggle('result-mode',isResult);
-  document.querySelectorAll('[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===view));
-  if(view==='quiz')renderQuiz();
-  else if(view==='birth')renderBirth();
-  else renderResult();
-  if(push) history.pushState({view},'',isResult?'#result':'#'+view);
-  window.scrollTo({top:0,behavior:'instant'});
-}
-
-function renderBirth(){
-  $('#panel').innerHTML=`<p class="question-kicker">02 / 东方命盘</p><h2>记录你与世界相遇的时刻。</h2>
-  <p class="muted">以公历、北京时间（UTC+8）排盘。暂不校正真太阳时；海外出生请先换算北京时间。</p>
-  <form id="birthForm"><label for="date">出生日期 · 公历</label><input required id="date" type="date" min="1901-01-01" max="${new Date().toISOString().slice(0,10)}" value="${state.birth.date}">
-  <label for="time">出生时间 · 北京时间</label><input id="time" type="time" value="${state.birth.time}" ${state.birth.unknown?'disabled':''}>
-  <label class="check"><input id="unknown" type="checkbox" ${state.birth.unknown?'checked':''}> 不确定时辰（仅分析前三柱）</label>
-  <div class="row"><div><label for="wrist">手围 · cm</label><input id="wrist" type="number" min="12" max="23" step="0.5" required value="${state.birth.wrist}"></div><div><label for="size">珠径 · mm</label><select id="size">${[6,8,10,12].map(s=>`<option ${s===state.birth.size?'selected':''}>${s}</option>`).join('')}</select></div></div>
-  <p class="fine">数量按手围 + 0.5 cm 松量估算。实物尺寸还需根据珠孔、弹力线与佩戴松紧调整。</p><p id="formError" class="error" role="alert"></p>
-  <div class="actions"><button type="button" class="secondary" id="backQuiz">返回问卷</button><button class="primary" type="submit">生成两款专属手串</button></div></form>`;
-  $('#unknown').onchange=e=>$('#time').disabled=e.target.checked;
-  $('#backQuiz').onclick=()=>{saveBirth();show('quiz')};
-  $('#birthForm').onsubmit=e=>{e.preventDefault();saveBirth();if(state.answers.includes(null)){$('#formError').textContent='请先完成全部 8 道性格问题。';return}try{generate();show('result')}catch(err){$('#formError').textContent='排盘暂未完成，请检查出生日期和时间后重试。'}};
-}
-
-function saveBirth(){
-  state.birth={date:$('#date').value,time:$('#time').value||'12:00',unknown:$('#unknown').checked,wrist:+$('#wrist').value,size:+$('#size').value};
-}
-
-function choosePrimary(a){
-  const score={
-    '紫水晶':(a[0]===0?2:0)+(a[5]===0?2:0)+(a[7]===0?1:0),
-    '海蓝宝':(a[0]===1?1:0)+(a[2]===1?2:0)+(a[6]===0?1:0),
-    '虎眼石':(a[1]===0?2:0)+(a[2]===0?2:0)+(a[3]===0?1:0),
-    '红玛瑙':(a[1]===1?2:0)+(a[5]===1?2:0)+(a[7]===1?1:0),
-    '粉晶':(a[2]===1?2:0)+(a[4]===1?2:0)+(a[6]===0?1:0),
-    '茶晶':(a[3]===0?2:0)+(a[4]===0?1:0)+(a[7]===0?2:0),
-    '东陵玉':(a[3]===1?2:0)+(a[7]===1?2:0)+(a[6]===0?1:0),
-    '石榴石':(a[5]===1?2:0)+(a[6]===1?2:0)+(a[4]===1?1:0)
-  };
-  const name=Object.entries(score).sort((x,y)=>y[1]-x[1])[0][0];
-  return byName(name);
-}
-
-function chooseAccents(primary,least){
-  const palettes={
-    '紫水晶':{木:['萤石','东陵玉'],火:['薰衣草紫晶','草莓晶'],土:['茶晶','紫黄晶'],金:['月光石','白水晶'],水:['拉长石','海蓝宝']},
-    '海蓝宝':{木:['天河石','东陵玉'],火:['薰衣草紫晶','粉晶'],土:['茶晶','白松石'],金:['月光石','白水晶'],水:['蓝玉髓','拉长石']},
-    '虎眼石':{木:['沉香木','和田碧玉'],火:['红虎眼','红玛瑙'],土:['茶晶','黄水晶'],金:['白松石','白水晶'],水:['鹰眼石','黑曜石']},
-    '红玛瑙':{木:['小叶紫檀','东陵玉'],火:['南红玛瑙','石榴石'],土:['虎眼石','黄水晶'],金:['白玉髓','白水晶'],水:['黑曜石','茶晶']},
-    '粉晶':{木:['岫玉','东陵玉'],火:['草莓晶','樱花玛瑙'],土:['白松石','淡水珍珠'],金:['月光石','白水晶'],水:['海蓝宝','拉长石']},
-    '茶晶':{木:['沉香木','和田碧玉'],火:['红虎眼','石榴石'],土:['虎眼石','星月菩提'],金:['白松石','白水晶'],水:['黑曜石','鹰眼石']},
-    '东陵玉':{木:['翡翠','岫玉'],火:['草莓晶','南红玛瑙'],土:['黄水晶','星月菩提'],金:['白玉髓','月光石'],水:['天河石','海蓝宝']},
-    '石榴石':{木:['小叶紫檀','和田碧玉'],火:['红玛瑙','草莓晶'],土:['茶晶','虎眼石'],金:['白水晶','白松石'],水:['黑曜石','拉长石']}
-  };
-  const names=palettes[primary.name][least];
-  return names.map(byName).filter(c=>c&&c.id!==primary.id).slice(0,2);
-}
-
-function generate(){
-  const b=state.birth,[y,m,d]=b.date.split('-').map(Number),[h,mi]=b.time.split(':').map(Number);
-  const ec=Solar.fromYmdHms(y,m,d,b.unknown?12:h,mi,0).getLunar().getEightChar();
-  ec.setSect(2);
-  const pillars=[ec.getYear(),ec.getMonth(),ec.getDay(),b.unknown?'—':ec.getTime()];
-  const wx=[ec.getYearWuXing(),ec.getMonthWuXing(),ec.getDayWuXing(),b.unknown?'':ec.getTimeWuXing()];
-  const counts=Object.fromEntries(['木','火','土','金','水'].map(x=>[x,wx.join('').split(x).length-1]));
-  const least=Object.keys(counts).sort((a,z)=>counts[a]-counts[z])[0];
-  const primary=choosePrimary(state.answers),accents=chooseAccents(primary,least);
-  const total=Math.max(12,Math.round((b.wrist*10+5)/b.size));
-  const accentTotal=Math.max(2,Math.floor(total*.2));
-  const a1=Math.ceil(accentTotal/2),a2=accentTotal-a1;
-  state.chart={pillars,counts,least};
-  state.pureRecipe=[{id:primary.id,n:total}];
-  state.mixedRecipe=[{id:primary.id,n:total-accentTotal},{id:accents[0].id,n:a1},...(a2?[{id:accents[1].id,n:a2}]:[])];
-  state.result=true;
-  sessionStorage.setItem('jingyu-result',JSON.stringify(state));
-}
-
-function renderResult(){
-  const a=state.answers,c=state.chart,primary=crystals[state.pureRecipe[0].id];
-  const traits=[a[0]?'从交流中充电':'享受独处',a[1]?'敢于尝试':'审慎思考',a[4]?'重视连接':'重视边界'];
-  $('#resultSummary').textContent=`性格主石为${primary.name}。同一颗主石，用统一的纯色版与克制的配色版呈现。`;
-  $('#resultTraits').innerHTML=traits.map(t=>`<span>${t}</span>`).join('');
-  $('#pureLegend').innerHTML=legend(state.pureRecipe);
-  $('#mixedLegend').innerHTML=legend(state.mixedRecipe);
-  $('#pureReason').textContent=`整串使用 ${state.pureRecipe[0].n} 颗${primary.name}，颜色与光泽最统一，适合偏爱简洁、日常好搭配的佩戴方式。`;
-  const accentNames=state.mixedRecipe.slice(1).map(r=>crystals[r.id].name).join('、');
-  const pct=Math.round(state.mixedRecipe[0].n/state.mixedRecipe.reduce((n,r)=>n+r.n,0)*100);
-  $('#mixedReason').textContent=`以${primary.name}占 ${pct}% 作为绝对主色，${accentNames}仅作对称点缀。保留推理结果，也让颜色更完整、不零碎。`;
-  $('#pillars').innerHTML=c.pillars.map((p,i)=>`<div class="pillar"><small>${['年柱','月柱','日柱','时柱'][i]}</small><b>${p}</b></div>`).join('');
-  $('#chartNote').innerHTML=`表层五行：${Object.entries(c.counts).map(([k,v])=>`${k} ${v}`).join(' · ')}<br>节气定年月柱，日柱以午夜换日。仅计天干与地支本气，不含藏干、旺衰或喜用神分析${state.birth.unknown?'；时辰未知，未纳入时柱':''}。`;
-  const reasons=[
-    [primary,`问卷中的能量、决策和当下目标共同指向「${primary.meaning}」，所以它成为两款方案的主石。`],
-    [crystals[state.mixedRecipe[1].id],`四柱表层五行中「${c.least}」数量较少，因此在配色版中加入少量${crystals[state.mixedRecipe[1].id].name}作文化与配色参考。`],
-    [crystals[state.mixedRecipe[2].id],`第三种珠材只占很小比例，用来衔接明暗和材质层次，并与主色保持同一冷暖倾向。`]
-  ];
-  $('#reasons').innerHTML=reasons.map(([x,t],i)=>`<div class="reason">${bead(x.id)}<div><h3>${x.name} <strong>${i?'点缀':'主石'}</strong></h3><p>${t}</p></div></div>`).join('');
-  drawBracelet($('#pureBracelet'),state.pureRecipe);
-  drawBracelet($('#mixedBracelet'),state.mixedRecipe);
-  document.querySelectorAll('[data-download]').forEach(b=>b.onclick=()=>downloadDesign(b.dataset.download));
-}
-
-function balancedSequence(recipe){
-  const total=recipe.reduce((n,r)=>n+r.n,0),seq=Array(total).fill(recipe[0].id);
-  const accents=[];
-  recipe.slice(1).forEach(r=>{for(let i=0;i<r.n;i++)accents.push(r.id)});
-  accents.forEach((id,i)=>{seq[Math.floor(i*total/accents.length)%total]=id});
-  return seq;
-}
-
-function drawBead(ctx,id,x,y,size){
-  const c=crystals[id],sw=sprite.naturalWidth/4,sh=sprite.naturalHeight/4;
-  ctx.save();ctx.shadowColor='#0008';ctx.shadowBlur=14;ctx.shadowOffsetY=9;ctx.filter=c.filter;
-  ctx.drawImage(sprite,c.visual%4*sw,Math.floor(c.visual/4)*sh,sw,sh,x-size/2,y-size/2,size,size);ctx.restore();
-}
-
-function drawBracelet(canvas,recipe){
-  if(!canvas||!sprite.complete||!sprite.naturalWidth)return;
-  const ctx=canvas.getContext('2d'),ids=balancedSequence(recipe),n=ids.length,radius=295,size=Math.min(130,2*Math.PI*radius/n*1.2);
-  ctx.clearRect(0,0,900,900);
-  ids.forEach((id,i)=>{const a=-Math.PI/2+i/n*Math.PI*2;drawBead(ctx,id,450+Math.cos(a)*radius,450+Math.sin(a)*radius,size)});
-}
-
-function updatePreview(){
-  const recipe=state.result?state.mixedRecipe:[{id:0,n:16},{id:27,n:2},{id:11,n:2}];
-  $('#designName').textContent=state.result?'配色版 · 克制点缀':'静谧 · 微光';
-  $('#beadSpec').textContent=`${recipe.reduce((n,r)=>n+r.n,0)} 颗 / ${state.birth.size} mm`;
-  $('#legend').innerHTML=legend(recipe);
-  $('#previewNote').textContent=state.result?'主色约 80%，其余珠材对称点缀。':'示例搭配。完成探索后，为你生成两款方案。';
-  drawBracelet($('#bracelet'),recipe);
-}
-
-function downloadDesign(type){
-  if(!sprite.naturalWidth){alert('珠材图片还未加载，请稍后再试。');return}
-  const source=type==='pure'?$('#pureBracelet'):$('#mixedBracelet'),recipe=type==='pure'?state.pureRecipe:state.mixedRecipe;
-  const c=document.createElement('canvas');c.width=1200;c.height=1450;const ctx=c.getContext('2d');
-  ctx.fillStyle='#172425';ctx.fillRect(0,0,c.width,c.height);ctx.drawImage(source,100,120,1000,1000);
-  ctx.textAlign='center';ctx.fillStyle='#d8ba80';ctx.font='34px serif';ctx.fillText(`晶遇 · ${type==='pure'?'纯色版':'配色版'}`,600,95);
-  ctx.fillStyle='#f1efe7';ctx.font='25px sans-serif';ctx.fillText(recipe.map(r=>`${crystals[r.id].name} ${r.n}颗`).join('  ·  '),600,1215);
-  ctx.font='22px sans-serif';ctx.fillText(`${recipe.reduce((n,r)=>n+r.n,0)} 颗 · ${state.birth.size} mm · 手围 ${state.birth.wrist} cm`,600,1270);
-  ctx.fillStyle='#a2b0ab';ctx.font='19px sans-serif';ctx.fillText('AI 材质示意 · 文化寓意与个人审美参考',600,1350);
-  const a=document.createElement('a');a.download=`晶遇-${type==='pure'?'纯色版':'配色版'}.png`;a.href=c.toDataURL('image/png');a.click();
-}
-
-function library(filter=state.libraryFilter,query=state.search){
-  state.libraryFilter=filter;state.search=query;
-  const choices=['全部','水晶','玛瑙玉髓','玉石','矿石','有机珠材','木质珠材'];
-  $('#filters').innerHTML=choices.map(f=>`<button data-filter="${f}" class="${filter===f?'active':''}">${f}</button>`).join('');
-  const list=crystals.filter(c=>(filter==='全部'||c.category===filter)&&(c.name.includes(query)||c.color.includes(query)||c.meaning.includes(query)));
-  $('#libraryCount').textContent=list.length;
-  $('#catalog').innerHTML=list.length?list.map(c=>`<button class="crystal-card" data-id="${c.id}">${bead(c.id)}<h3>${c.name}</h3><p>${c.category} · ${c.element} · ${c.color}</p><small>${c.meaning}</small></button>`).join(''):'<p class="empty">没有找到匹配的珠材，换个关键词试试。</p>';
-  document.querySelectorAll('[data-filter]').forEach(b=>b.onclick=()=>library(b.dataset.filter,state.search));
-  document.querySelectorAll('[data-id]').forEach(b=>b.onclick=()=>openDetail(+b.dataset.id));
-}
-
-function openDetail(id){
-  const c=crystals[id];
-  $('#detailBody').innerHTML=`${bead(c.id)}<p class="eyebrow">BEAD NO. ${String(c.id+1).padStart(2,'0')}</p><h2>${c.name}</h2><p>${c.texture}</p><p>类别：${c.category}<br>颜色：${c.color} · 五行配色：${c.element}<br>设计寓意：${c.meaning}<br>常用珠径：6 / 8 / 10 / 12 mm</p><p>可作为主石或点缀珠材。寓意用于个人审美表达，不代表珠材具有改变性格或运势的功效。</p>`;
-  $('#detail').showModal();
-}
-
-function openLibrary(){
-  if(!$('#resultPage').hidden) show('birth');
-  $('#library').hidden=false;library();$('#library').scrollIntoView({behavior:'smooth'});
-}
-
-sprite.onload=()=>{$('#artStatus').hidden=true;updatePreview();if(state.result)renderResult()};
-sprite.onerror=()=>{$('#artStatus').textContent='珠材示意图暂不可用，请刷新重试'};
-$('#libraryTop').onclick=openLibrary;
-$('#resultLibrary').onclick=openLibrary;
-$('#closeLibrary').onclick=()=>{$('#library').hidden=true;window.scrollTo({top:0,behavior:'smooth'})};
-$('#crystalSearch').oninput=e=>library(state.libraryFilter,e.target.value.trim());
-$('#closeDetail').onclick=()=>$('#detail').close();
-$('#resultBack').onclick=()=>show('birth');
-document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>show(b.dataset.view));
-window.onpopstate=()=>show(location.hash==='#result'?'result':location.hash==='#birth'?'birth':'quiz',false);
-if(location.hash==='#result'&&state.result) show('result',false);
-else{if(location.hash==='#result')history.replaceState({view:'quiz'},'','#quiz');renderQuiz();updatePreview()}
-
-if(document.modelContext?.registerTool){
-  try{Promise.resolve(document.modelContext.registerTool({
-    name:'read_crystal_recipes',description:'读取当前纯色版与配色版手串方案，不改变页面。',
-    inputSchema:{type:'object',properties:{},additionalProperties:false},annotations:{readOnlyHint:true},
-    execute(input){if(!input||typeof input!=='object'||Object.keys(input).length)throw Error('参数必须为空对象');return {completed:state.result,pure:state.pureRecipe.map(r=>({name:crystals[r.id].name,count:r.n})),mixed:state.mixedRecipe.map(r=>({name:crystals[r.id].name,count:r.n})),diameter:state.birth.size}}
-  })).catch(()=>{})}catch{}
-}
+const questionTopics=['能量来源','行动方式','决策偏好','生活节奏','人际边界','当下心愿','审美偏好','未来期待','核心愿望'];
+const goals=[
+{name:'财运与资源',effect:'希望增强资源意识、把握机会，并更有计划地积累。',candidates:['黄水晶','绿幽灵','金发晶']},
+{name:'事业与行动',effect:'希望提升目标感、执行力与面对挑战时的笃定。',candidates:['虎眼石','钛晶','紫水晶']},
+{name:'内心稳定',effect:'希望减轻内耗、建立边界，并回到更安定的节奏。',candidates:['茶晶','紫水晶','月光石']},
+{name:'感情与关系',effect:'希望更自在地表达感受，也建立温柔而清晰的连接。',candidates:['粉晶','草莓晶','红纹石']},
+{name:'表达与人缘',effect:'希望沟通更从容、真实，并在人群中保持自己的声音。',candidates:['海蓝宝','蓝纹玛瑙','青金石']},
+{name:'学习与成长',effect:'希望集中注意力、保持好奇，并把知识转化为行动。',candidates:['萤石','白水晶','紫水晶']}
+];
+const byName=name=>crystals.find(c=>c.name===name),$=s=>document.querySelector(s);
+const baseState={version:3,view:'quiz',q:0,answers:Array(9).fill(null),birth:{date:'',time:'12:00',unknown:false,wrist:16,size:8},chart:null,recommended:[],pureRecipes:[],mixedRecipe:[{id:0,n:16},{id:36,n:2},{id:45,n:2}],result:false,libraryFilter:'全部',search:''};
+const state={...baseState};try{const saved=JSON.parse(sessionStorage.getItem('jingyu-result-v3'));if(saved?.version===3&&saved.result)Object.assign(state,saved)}catch{}
+const sprite=new Image();sprite.src='assets/beads.png';
+function beadStyle(id){const c=crystals[id];return `background-position:${c.visual%4*100/3}% ${Math.floor(c.visual/4)*100/3}%;filter:${c.filter}`}
+function bead(id){return `<span class="bead" style="${beadStyle(id)}"></span>`}
+function legend(recipe){return recipe.map(r=>`<span><i style="background:${crystals[r.id].hex}"></i>${crystals[r.id].name} ${r.n} 颗</span>`).join('')}
+function renderQuiz(){const q=questions[state.q],total=questions.length;$('#panel').innerHTML=`<div class="panel-head"><span>性格与愿望探索</span><span>${String(state.q+1).padStart(2,'0')} / ${String(total).padStart(2,'0')} · 约 2 分钟</span></div><div class="progress"><div style="width:${(state.q+1)/total*100}%"></div></div><p class="question-kicker">${questionTopics[state.q]}</p><h2>${q[0]}</h2><p class="muted">${state.q===8?'请选择此刻最重要的一个方向。':'没有标准答案，选择更接近此刻的自己。'}</p><div class="answers ${state.q===8?'goal-answers':''}">${q[1].map((a,i)=>`<button class="answer ${state.answers[state.q]===i?'selected':''}" data-answer="${i}" aria-pressed="${state.answers[state.q]===i}"><i>${String.fromCharCode(65+i)}</i><span>${a}</span></button>`).join('')}</div><div class="actions"><button class="secondary" id="prev" ${state.q===0?'disabled':''}>上一题</button><button class="primary" id="next" ${state.answers[state.q]===null?'disabled':''}>${state.q===total-1?'继续填写出生信息':'下一题'}</button></div><p class="fine">你的选择与出生信息仅在当前页面和本次会话中计算，不上传服务器。</p>`;document.querySelectorAll('[data-answer]').forEach(b=>b.onclick=()=>{state.answers[state.q]=+b.dataset.answer;state.result=false;renderQuiz()});$('#prev').onclick=()=>{state.q--;renderQuiz()};$('#next').onclick=()=>state.q<total-1?(state.q++,renderQuiz()):show('birth')}
+function show(view,push=true){if(view==='result'&&!state.result){if(state.answers.includes(null)){state.q=state.answers.indexOf(null);view='quiz'}else view='birth'}state.view=view;const isResult=view==='result';$('#appShell').hidden=isResult;$('#resultPage').hidden=!isResult;document.body.classList.toggle('result-mode',isResult);document.querySelectorAll('[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===view));if(view==='quiz')renderQuiz();else if(view==='birth')renderBirth();else renderResult();if(push)history.pushState({view},'',isResult?'#result':'#'+view);window.scrollTo({top:0,behavior:'instant'})}
+function renderBirth(){$('#panel').innerHTML=`<p class="question-kicker">02 / 东方命盘</p><h2>记录你与世界相遇的时刻。</h2><p class="muted">以公历、北京时间（UTC+8）排盘。暂不校正真太阳时；海外出生请先换算北京时间。</p><form id="birthForm"><label for="date">出生日期 · 公历</label><input required id="date" type="date" min="1901-01-01" max="${new Date().toISOString().slice(0,10)}" value="${state.birth.date}"><label for="time">出生时间 · 北京时间</label><input id="time" type="time" value="${state.birth.time}" ${state.birth.unknown?'disabled':''}><label class="check"><input id="unknown" type="checkbox" ${state.birth.unknown?'checked':''}> 不确定时辰（仅分析前三柱）</label><div class="row"><div><label for="wrist">手围 · cm</label><input id="wrist" type="number" min="12" max="23" step="0.5" required value="${state.birth.wrist}"></div><div><label for="size">珠径 · mm</label><select id="size">${[6,8,10,12].map(s=>`<option ${s===state.birth.size?'selected':''}>${s}</option>`).join('')}</select></div></div><p class="fine">数量按手围 + 0.5 cm 松量估算。实物尺寸还需根据珠孔、弹力线与佩戴松紧调整。</p><p id="formError" class="error" role="alert"></p><div class="actions"><button type="button" class="secondary" id="backQuiz">返回问卷</button><button class="primary" type="submit">生成分析与手串</button></div></form>`;$('#unknown').onchange=e=>$('#time').disabled=e.target.checked;$('#backQuiz').onclick=()=>{saveBirth();show('quiz')};$('#birthForm').onsubmit=e=>{e.preventDefault();saveBirth();if(state.answers.includes(null)){$('#formError').textContent='请先完成全部 9 道问题。';return}try{generate();show('result')}catch(err){$('#formError').textContent='排盘暂未完成，请检查出生日期和时间后重试。'}}}
+function saveBirth(){state.birth={date:$('#date').value,time:$('#time').value||'12:00',unknown:$('#unknown').checked,wrist:+$('#wrist').value,size:+$('#size').value}}
+const stemElement={甲:'木',乙:'木',丙:'火',丁:'火',戊:'土',己:'土',庚:'金',辛:'金',壬:'水',癸:'水'};
+const branchElement={寅:'木',卯:'木',辰:'土',巳:'火',午:'火',未:'土',申:'金',酉:'金',戌:'土',亥:'水',子:'水',丑:'土'};
+const produce={木:'火',火:'土',土:'金',金:'水',水:'木'},control={木:'土',土:'水',水:'火',火:'金',金:'木'};
+const producer=el=>Object.keys(produce).find(k=>produce[k]===el);
+const elementCandidates={木:['绿幽灵','绿萤石','橄榄石','苔藓玛瑙'],火:['紫水晶','石榴石','红纹石','草莓晶'],土:['黄水晶','茶晶','虎眼石','黄玛瑙'],金:['白水晶','金发晶','月光石','白玉髓'],水:['海蓝宝','黑碧玺','青金石','蓝晶石']};
+function pickDistinct(names,used){return names.map(byName).find(c=>c&&!used.has(c.id))}
+function chooseRecommendations(chart,a){const goal=goals[a[8]],used=new Set;let first=goal.candidates.map(byName).find(c=>c?.element===chart.useGod)||byName(elementCandidates[chart.useGod][0]);used.add(first.id);let second=pickDistinct(goal.candidates,used)||pickDistinct(elementCandidates[chart.joyGod],used);used.add(second.id);const personality=a[0]===0?(a[5]===0?['紫水晶','茶晶','月光石']:['金发晶','虎眼石','红玛瑙']):(a[2]===1?['海蓝宝','粉晶','草莓晶']:['太阳石','黄水晶','钛晶']);let third=pickDistinct(personality,used)||pickDistinct(elementCandidates[chart.joyGod],used)||pickDistinct(['白水晶','萤石','拉长石'],used);return[first,second,third]}
+function generate(){const b=state.birth,[y,m,d]=b.date.split('-').map(Number),[h,mi]=b.time.split(':').map(Number),ec=Solar.fromYmdHms(y,m,d,b.unknown?12:h,mi,0).getLunar().getEightChar();ec.setSect(2);const pillars=[ec.getYear(),ec.getMonth(),ec.getDay(),b.unknown?'—':ec.getTime()],chars=pillars.filter(p=>p!=='—').join(''),counts=Object.fromEntries(['木','火','土','金','水'].map(x=>[x,[...chars].filter(ch=>stemElement[ch]===x||branchElement[ch]===x).length]));const dayStem=pillars[2][0],dayElement=stemElement[dayStem],monthBranch=pillars[1][1],seasonElement=({寅:'木',卯:'木',辰:'木',巳:'火',午:'火',未:'火',申:'金',酉:'金',戌:'金',亥:'水',子:'水',丑:'水'})[monthBranch],support=producer(dayElement),total=Object.values(counts).reduce((n,x)=>n+x,0),strengthPoints=counts[dayElement]+counts[support]+(seasonElement===dayElement?2:seasonElement===support?1:0),ratio=strengthPoints/(total+2);let strength,useGod,joyGod;if(ratio>.52){strength='偏强';useGod=produce[dayElement];joyGod=control[dayElement]}else if(ratio<.34){strength='偏弱';useGod=support;joyGod=dayElement}else{strength='相对平衡';useGod=Object.keys(counts).sort((a,z)=>counts[a]-counts[z])[0];joyGod=support}const least=Object.keys(counts).sort((a,z)=>counts[a]-counts[z])[0];state.chart={pillars,counts,dayStem,dayElement,seasonElement,strength,useGod,joyGod,least,ratio};const recs=chooseRecommendations(state.chart,state.answers),totalBeads=Math.max(12,Math.round((b.wrist*10+5)/b.size)),accentTotal=Math.max(2,Math.floor(totalBeads*.2)),a1=Math.ceil(accentTotal/2),a2=accentTotal-a1;state.recommended=recs.map(c=>c.id);state.pureRecipes=recs.map(c=>({id:c.id,n:totalBeads}));state.mixedRecipe=[{id:recs[0].id,n:totalBeads-accentTotal},{id:recs[1].id,n:a1},{id:recs[2].id,n:a2}];state.result=true;sessionStorage.setItem('jingyu-result-v3',JSON.stringify(state))}
+function traitSummary(a){return[a[0]?'从连接中获得能量':'需要独处恢复',a[1]?'偏向先行动':'偏向先理解',a[4]?'向往深度连接':'重视清晰边界']}
+function renderResult(){const a=state.answers,c=state.chart,goal=goals[a[8]],recs=state.recommended.map(id=>crystals[id]);$('#resultSummary').textContent=`${c.dayStem}${c.dayElement}日主 · 用神倾向${c.useGod} · 此刻最想提升「${goal.name}」`;$('#resultTraits').innerHTML=[...traitSummary(a),`目标：${goal.name}`].map(t=>`<span>${t}</span>`).join('');$('#pillars').innerHTML=c.pillars.map((p,i)=>`<div class="pillar"><small>${['年柱','月柱','日柱','时柱'][i]}</small><b>${p}</b></div>`).join('');$('#reportHighlights').innerHTML=`<div><small>日主</small><strong>${c.dayStem}${c.dayElement}</strong><p>代表命盘分析的出发点</p></div><div><small>命局倾向</small><strong>${c.strength}</strong><p>${c.seasonElement}气当令的简化判断</p></div><div class="gold-highlight"><small>用神倾向</small><strong>${c.useGod}</strong><p>优先用于平衡的五行方向</p></div><div><small>喜神倾向</small><strong>${c.joyGod}</strong><p>辅助用神的第二方向</p></div>`;const max=Math.max(...Object.values(c.counts),1);$('#elementBars').innerHTML=Object.entries(c.counts).map(([k,v])=>`<div class="element-row"><span>${k}</span><div><i style="width:${v/max*100}%"></i></div><b>${v}</b></div>`).join('');$('#reportNarrative').innerHTML=`<p>你的日主为<strong>${c.dayStem}${c.dayElement}</strong>，结合出生月份的季节力量和八字表层五行，整体呈<strong>${c.strength}</strong>倾向。本次推演把<strong>${c.useGod}</strong>作为主要平衡方向，以<strong>${c.joyGod}</strong>辅助。</p><p>性格选择显示你${traitSummary(a).join('、')}。这不是固定标签，而是你目前处理能量、关系和行动的偏好。</p><p>你选择了<strong>${goal.name}</strong>，说明你正在向往：${goal.effect}</p>`;$('#chartNote').innerHTML=`表层五行：${Object.entries(c.counts).map(([k,v])=>`${k} ${v}`).join(' · ')}。${state.birth.unknown?'时辰未知，未纳入时柱。':''} 此处喜用神为轻量文化推演，不等同于专业命理定盘。`;const reasons=[`以${c.useGod}为本次用神倾向，${recs[0].name}的五行配色与之呼应；它的设计关键词是「${recs[0].meaning}」。`,`你最想提升「${goal.name}」。${recs[1].name}对应的设计关键词是「${recs[1].meaning}」，用来提醒你靠近这个目标。`,`你的选择显示你${traitSummary(a)[0]}、${traitSummary(a)[1]}。${recs[2].name}以「${recs[2].meaning}」回应这一性格需求。`];$('#recommendedMaterials').innerHTML=recs.map((x,i)=>`<article class="recommend-card"><span class="recommend-no">0${i+1}</span>${bead(x.id)}<div><p class="eyebrow">${['命盘平衡','核心愿望','性格需求'][i]}</p><h3>${x.name}</h3><p>${reasons[i]}</p><small>${x.texture}</small></div></article>`).join('');$('#pureLegend').innerHTML=legend(state.pureRecipes);$('#mixedLegend').innerHTML=legend(state.mixedRecipe);$('#pureReason').textContent=`${recs.map(x=>x.name).join('、')}各自单独成串，三串可以一起叠戴，也可以按当天状态单独选择。`;const pct=Math.round(state.mixedRecipe[0].n/state.mixedRecipe.reduce((n,r)=>n+r.n,0)*100);$('#mixedReason').textContent=`以${recs[0].name}占 ${pct}% 作为主色，${recs[1].name}与${recs[2].name}对称点缀，把三种需求收进一串。`;drawStacked($('#pureStack'),state.pureRecipes);drawBracelet($('#mixedBracelet'),state.mixedRecipe);document.querySelectorAll('[data-download]').forEach(b=>b.onclick=()=>downloadDesign(b.dataset.download))}
+function balancedSequence(recipe){const total=recipe.reduce((n,r)=>n+r.n,0),seq=Array(total).fill(recipe[0].id),accents=[];recipe.slice(1).forEach(r=>{for(let i=0;i<r.n;i++)accents.push(r.id)});accents.forEach((id,i)=>{seq[Math.floor(i*total/accents.length)%total]=id});return seq}
+function drawBead(ctx,id,x,y,size){const c=crystals[id],sw=sprite.naturalWidth/4,sh=sprite.naturalHeight/4;ctx.save();ctx.shadowColor='#0008';ctx.shadowBlur=12;ctx.shadowOffsetY=7;ctx.filter=c.filter;ctx.drawImage(sprite,c.visual%4*sw,Math.floor(c.visual/4)*sh,sw,sh,x-size/2,y-size/2,size,size);ctx.restore()}
+function drawBracelet(canvas,recipe){if(!canvas||!sprite.complete||!sprite.naturalWidth)return;const ctx=canvas.getContext('2d'),ids=balancedSequence(recipe),n=ids.length,radius=295,size=Math.min(130,2*Math.PI*radius/n*1.2);ctx.clearRect(0,0,900,900);ids.forEach((id,i)=>{const a=-Math.PI/2+i/n*Math.PI*2;drawBead(ctx,id,450+Math.cos(a)*radius,450+Math.sin(a)*radius,size)})}
+function drawStacked(canvas,recipes){if(!canvas||!sprite.complete||!sprite.naturalWidth)return;const ctx=canvas.getContext('2d'),ys=recipes.length===2?[350,550]:[275,450,625],radius=190;ctx.clearRect(0,0,900,900);recipes.forEach((r,j)=>{const n=r.n,size=Math.min(78,2*Math.PI*radius/n*1.12);for(let i=0;i<n;i++){const a=-Math.PI/2+i/n*Math.PI*2;drawBead(ctx,r.id,450+Math.cos(a)*radius,ys[j]+Math.sin(a)*radius,size)}})}
+function updatePreview(){const recipe=state.result?state.mixedRecipe:[{id:0,n:16},{id:36,n:2},{id:45,n:2}];$('#designName').textContent=state.result?'三晶共鸣 · 配色单串':'静谧 · 微光';$('#beadSpec').textContent=`${recipe.reduce((n,r)=>n+r.n,0)} 颗 / ${state.birth.size} mm`;$('#legend').innerHTML=legend(recipe);$('#previewNote').textContent=state.result?'三种推荐晶石，主色约 80%，其余对称点缀。':'示例搭配。完成探索后，为你生成完整分析和两种方案。';drawBracelet($('#bracelet'),recipe)}
+function downloadDesign(type){if(!sprite.naturalWidth){alert('珠材图片还未加载，请稍后再试。');return}const source=type==='pure'?$('#pureStack'):$('#mixedBracelet'),recipe=type==='pure'?state.pureRecipes:state.mixedRecipe,c=document.createElement('canvas');c.width=1200;c.height=1450;const ctx=c.getContext('2d');ctx.fillStyle='#172425';ctx.fillRect(0,0,c.width,c.height);ctx.drawImage(source,100,120,1000,1000);ctx.textAlign='center';ctx.fillStyle='#d8ba80';ctx.font='34px serif';ctx.fillText(`晶遇 · ${type==='pure'?'纯色叠戴版':'配色单串版'}`,600,95);ctx.fillStyle='#f1efe7';ctx.font='25px sans-serif';ctx.fillText(recipe.map(r=>`${crystals[r.id].name} ${r.n}颗`).join('  ·  '),600,1215);ctx.font='22px sans-serif';ctx.fillText(`${state.birth.size} mm · 手围 ${state.birth.wrist} cm`,600,1270);ctx.fillStyle='#a2b0ab';ctx.font='19px sans-serif';ctx.fillText('AI 材质示意 · 文化寓意与个人审美参考',600,1350);const a=document.createElement('a');a.download=`晶遇-${type==='pure'?'纯色叠戴版':'配色单串版'}.png`;a.href=c.toDataURL('image/png');a.click()}
+function library(filter=state.libraryFilter,query=state.search){state.libraryFilter=filter;state.search=query;const choices=['全部','石英水晶','玛瑙玉髓','长石','矿物晶石','火山玻璃'];$('#filters').innerHTML=choices.map(f=>`<button data-filter="${f}" class="${filter===f?'active':''}">${f}</button>`).join('');const list=crystals.filter(c=>(filter==='全部'||c.category===filter)&&(c.name.includes(query)||c.color.includes(query)||c.meaning.includes(query)));$('#libraryCount').textContent=list.length;$('#catalog').innerHTML=list.length?list.map(c=>`<button class="crystal-card" data-id="${c.id}">${bead(c.id)}<h3>${c.name}</h3><p>${c.category} · ${c.element} · ${c.color}</p><small>${c.meaning}</small></button>`).join(''):'<p class="empty">没有找到匹配的晶石，换个关键词试试。</p>';document.querySelectorAll('[data-filter]').forEach(b=>b.onclick=()=>library(b.dataset.filter,state.search));document.querySelectorAll('[data-id]').forEach(b=>b.onclick=()=>openDetail(+b.dataset.id))}
+function openDetail(id){const c=crystals[id];$('#detailBody').innerHTML=`${bead(c.id)}<p class="eyebrow">CRYSTAL NO. ${String(c.id+1).padStart(2,'0')}</p><h2>${c.name}</h2><p>${c.texture}</p><p>类别：${c.category}<br>颜色：${c.color} · 五行配色：${c.element}<br>设计寓意：${c.meaning}<br>常用珠径：6 / 8 / 10 / 12 mm</p><p>寓意用于个人审美和自我提醒，不代表晶石具有改变运势或治疗疾病的功效。</p>`;$('#detail').showModal()}
+function openLibrary(){if(!$('#resultPage').hidden)show('birth');$('#library').hidden=false;library();$('#library').scrollIntoView({behavior:'smooth'})}
+sprite.onload=()=>{$('#artStatus').hidden=true;updatePreview();if(state.result)renderResult()};sprite.onerror=()=>{$('#artStatus').textContent='珠材示意图暂不可用，请刷新重试'};$('#libraryTop').onclick=openLibrary;$('#resultLibrary').onclick=openLibrary;$('#closeLibrary').onclick=()=>{$('#library').hidden=true;window.scrollTo({top:0,behavior:'smooth'})};$('#crystalSearch').oninput=e=>library(state.libraryFilter,e.target.value.trim());$('#closeDetail').onclick=()=>$('#detail').close();$('#resultBack').onclick=()=>show('birth');document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>show(b.dataset.view));window.onpopstate=()=>show(location.hash==='#result'?'result':location.hash==='#birth'?'birth':'quiz',false);if(location.hash==='#result'&&state.result)show('result',false);else{if(location.hash==='#result')history.replaceState({view:'quiz'},'','#quiz');renderQuiz();updatePreview()}
+if(document.modelContext?.registerTool){try{Promise.resolve(document.modelContext.registerTool({name:'read_crystal_profile',description:'读取当前命盘倾向、推荐晶石与两种手串方案，不改变页面。',inputSchema:{type:'object',properties:{},additionalProperties:false},annotations:{readOnlyHint:true},execute(input){if(!input||typeof input!=='object'||Object.keys(input).length)throw Error('参数必须为空对象');return{completed:state.result,chart:state.chart?{dayMaster:state.chart.dayStem+state.chart.dayElement,useGod:state.chart.useGod,joyGod:state.chart.joyGod}:null,goal:state.answers[8]!==null?goals[state.answers[8]].name:null,recommended:state.recommended.map(id=>crystals[id].name),stacked:state.pureRecipes.map(r=>({name:crystals[r.id].name,count:r.n})),mixed:state.mixedRecipe.map(r=>({name:crystals[r.id].name,count:r.n}))}}})).catch(()=>{})}catch{}}
