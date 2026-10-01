@@ -1,1 +1,96 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101b1c"><meta name="description" content="探索你的性格与东方五行，为自己设计一串有意义的水晶手串。"><title>晶遇 · 找到与你共鸣的水晶</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23101b1c'/%3E%3Cpath d='M16 5 26 14 16 27 6 14Z' fill='none' stroke='%23d8ba80' stroke-width='2'/%3E%3C/svg%3E"><link rel="stylesheet" href="style.css"></head><body><header><a class="brand" href="#" aria-label="晶遇首页"><span>◇</span> 晶遇 <small>JINGYU</small></a><span class="header-note">一人一串 · 自有共鸣</span><button class="text-btn" id="libraryTop">水晶图鉴 ↗</button></header><main><div class="intro"><p class="eyebrow">YOUR INNER NATURE, IN CRYSTAL</p><h1>让每一颗，<br class="mobile">都与你有关。</h1><p>从性格到五行，找到属于你的水晶组合。</p></div><nav class="steps" aria-label="搭配步骤"><button data-view="quiz" class="active"><b>01</b> 认识自己</button><button data-view="birth"><b>02</b> 东方命盘</button><button data-view="result"><b>03</b> 专属手串</button></nav><div class="workspace"><section id="panel"></section><aside class="preview"><div class="preview-top"><span class="eyebrow">YOUR CRYSTAL, YOUR STORY</span><span class="tag" id="previewTag">灵感搭配</span></div><div class="bracelet-stage"><canvas id="bracelet" width="900" height="900" aria-label="水晶手串搭配预览"></canvas><div id="artStatus">正在准备珠材纹理</div></div><div class="preview-caption"><div><p class="eyebrow">THE PERSONAL COLLECTION</p><h2 id="designName">静谧 · 微光</h2></div><span id="beadSpec">20 颗 / 8 mm</span></div><div id="legend" class="legend"></div><p class="fine" id="previewNote">示例搭配。完成探索后，为你生成专属配方。</p></aside></div><section id="library" hidden><div class="section-head"><div><p class="eyebrow">THE CRYSTAL LIBRARY</p><h2>每一种晶石，都有自己的语言。</h2></div><button class="text-btn" id="closeLibrary">收起 ↑</button></div><p class="muted">16 种常见珠材 · 点击了解颜色、纹理与搭配寓意</p><div id="filters" class="filters"></div><div id="catalog" class="catalog"></div><p class="fine">纹理为 AI 生成的材质示意，天然晶石的颜色、通透度与纹路存在差异。五行归属为本产品的颜色设计约定。</p></section><footer><span>◇ 晶遇 JINGYU</span><p>以晶石为镜，认识独一无二的自己。</p><small>性格问卷为自我探索工具；命理与水晶寓意属于文化参考，不代表科学测评或功效承诺。</small></footer></main><dialog id="detail"><button id="closeDetail" aria-label="关闭">×</button><div id="detailBody"></div></dialog><script src="assets/lunar.js"></script><script src="app.js"></script></body></html>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101b1c">
+  <meta name="description" content="探索你的性格与东方五行，为自己设计纯色与配色两款水晶手串。">
+  <title>晶遇 · 找到与你共鸣的水晶</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23101b1c'/%3E%3Cpath d='M16 5 26 14 16 27 6 14Z' fill='none' stroke='%23d8ba80' stroke-width='2'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="appShell">
+    <header>
+      <a class="brand" href="#" aria-label="晶遇首页"><span>◇</span> 晶遇 <small>JINGYU</small></a>
+      <span class="header-note">一人两款 · 自有共鸣</span>
+      <button class="text-btn" id="libraryTop">水晶图鉴</button>
+    </header>
+    <main>
+      <div class="intro">
+        <p class="eyebrow">YOUR INNER NATURE, IN CRYSTAL</p>
+        <h1>让每一颗，<br class="mobile">都与你有关。</h1>
+        <p>从性格到五行，找到属于你的纯色与配色手串。</p>
+      </div>
+      <nav class="steps" aria-label="搭配步骤">
+        <button data-view="quiz" class="active"><b>01</b> 认识自己</button>
+        <button data-view="birth"><b>02</b> 东方命盘</button>
+        <button data-view="result"><b>03</b> 专属手串</button>
+      </nav>
+      <div class="workspace">
+        <section id="panel"></section>
+        <aside class="preview">
+          <div class="preview-top"><span class="eyebrow">YOUR CRYSTAL, YOUR STORY</span><span class="tag">搭配预览</span></div>
+          <div class="bracelet-stage"><canvas id="bracelet" width="900" height="900" aria-label="水晶手串搭配预览"></canvas><div id="artStatus">正在准备珠材纹理</div></div>
+          <div class="preview-caption"><div><p class="eyebrow">THE PERSONAL COLLECTION</p><h2 id="designName">静谧 · 微光</h2></div><span id="beadSpec">20 颗 / 8 mm</span></div>
+          <div id="legend" class="legend"></div>
+          <p class="fine" id="previewNote">示例搭配。完成探索后，为你生成两款方案。</p>
+        </aside>
+      </div>
+      <section id="library" hidden>
+        <div class="section-head"><div><p class="eyebrow">THE BEAD LIBRARY</p><h2>更多珠材，更多表达。</h2></div><button class="text-btn" id="closeLibrary">收起</button></div>
+        <p class="muted"><strong id="libraryCount">48</strong> 种常见珠材 · 可按类别筛选或搜索名称</p>
+        <label class="search-label" for="crystalSearch">搜索珠材</label>
+        <input id="crystalSearch" class="search" type="search" placeholder="例如：紫水晶、翡翠、珍珠">
+        <div id="filters" class="filters"></div>
+        <div id="catalog" class="catalog"></div>
+        <p class="fine">图片为 AI 生成的材质示意，同类珠材会共用接近的纹理参考；天然材质的颜色、通透度和纹路会有差异。五行归属为本产品的配色设计约定。</p>
+      </section>
+      <footer><span>◇ 晶遇 JINGYU</span><p>以晶石为镜，认识独一无二的自己。</p><small>性格问卷为自我探索工具；命理与珠材寓意属于文化参考，不代表科学测评或功效承诺。</small></footer>
+    </main>
+  </div>
+
+  <section id="resultPage" class="result-page" hidden aria-labelledby="resultTitle">
+    <header class="result-header">
+      <button class="result-back" id="resultBack">重新调整</button>
+      <a class="brand" href="#" aria-label="晶遇首页"><span>◇</span> 晶遇 <small>JINGYU</small></a>
+      <button class="text-btn" id="resultLibrary">珠材图鉴</button>
+    </header>
+    <main class="result-main">
+      <div class="result-intro">
+        <p class="eyebrow">YOUR TWO CRYSTAL STORIES</p>
+        <h1 id="resultTitle">为此刻的你，生成两种表达。</h1>
+        <p id="resultSummary" class="muted"></p>
+        <div id="resultTraits" class="traits"></div>
+      </div>
+      <div class="result-grid">
+        <article class="design-card pure-card">
+          <div class="design-title"><div><span class="version-no">01</span><p class="eyebrow">MONOCHROME</p><h2>纯色版 · 日常主角</h2></div><span class="tag">一材到底</span></div>
+          <div class="result-stage"><canvas id="pureBracelet" width="900" height="900" aria-label="纯色手串效果图"></canvas></div>
+          <div id="pureLegend" class="legend"></div>
+          <p id="pureReason" class="design-reason"></p>
+          <button class="secondary save-design" data-download="pure">保存纯色版图片</button>
+        </article>
+        <article class="design-card mixed-card">
+          <div class="design-title"><div><span class="version-no">02</span><p class="eyebrow">BALANCED PALETTE</p><h2>配色版 · 克制点缀</h2></div><span class="tag">主色约 80%</span></div>
+          <div class="result-stage"><canvas id="mixedBracelet" width="900" height="900" aria-label="配色手串效果图"></canvas></div>
+          <div id="mixedLegend" class="legend"></div>
+          <p id="mixedReason" class="design-reason"></p>
+          <button class="primary save-design" data-download="mixed">保存配色版图片</button>
+        </article>
+      </div>
+      <section class="analysis-card">
+        <div><p class="eyebrow">WHY THESE BEADS</p><h2>你的搭配依据</h2></div>
+        <div id="pillars" class="pillars"></div>
+        <p id="chartNote" class="fine"></p>
+        <div id="reasons" class="reasons-grid"></div>
+      </section>
+      <p class="fine result-disclaimer">两款方案使用同一组性格与五行参考：纯色版强调统一感，配色版把全部辅色控制在约 20%，并对称分布，避免颜色杂乱。</p>
+    </main>
+  </section>
+
+  <dialog id="detail"><button id="closeDetail" aria-label="关闭">×</button><div id="detailBody"></div></dialog>
+  <script src="assets/lunar.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
