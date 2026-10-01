@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 920">
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#e9dfc5"/><stop offset=".48" stop-color="#d9caa8"/><stop offset="1" stop-color="#c3ae83"/>
+    </linearGradient>
+    <filter id="grain"><feTurbulence baseFrequency=".55" numOctaves="3" seed="7" type="fractalNoise"/><feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .13 0"/></filter>
+    <filter id="shadow"><feDropShadow dx="0" dy="18" stdDeviation="18" flood-opacity=".35"/></filter>
+  </defs>
+  <path d="M105 35h510l23 28-14 52 16 54-14 58 13 55-15 60 14 59-13 55 15 61-16 58 15 56-14 61 13 55-17 61 10 57-31 30H116l-28-30 11-57-17-61 13-55-15-56 15-58-14-61 14-55-15-59 14-60-14-55 15-58-14-54 14-52z" fill="url(#paper)" filter="url(#shadow)"/>
+  <path d="M126 72h468M126 848h468" stroke="#8b543d" stroke-width="3" opacity=".65"/>
+  <path d="M144 96v728M576 96v728" stroke="#8b543d" stroke-width="2" opacity=".35"/>
+  <circle cx="360" cy="72" r="8" fill="#8b543d" opacity=".6"/>
+  <rect x="100" y="35" width="540" height="850" filter="url(#grain)" opacity=".48"/>
+  <path d="M158 758c55-48 101-76 159-88-45 35-80 72-102 118m292-620c-58 42-92 81-115 135 45-38 86-60 135-73" fill="none" stroke="#65715e" stroke-width="5" opacity=".14"/>
+</svg>
