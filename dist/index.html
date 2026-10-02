@@ -7,18 +7,18 @@
 </head>
 <body>
   <div id="appShell">
-    <header><a class="brand home-link" href="#quiz" aria-label="晶遇首页"><span>◇</span> 晶遇 <small>JINGYU</small></a><span class="header-note">读懂自己 · 选对晶石</span><button class="text-btn" id="libraryTop">水晶图鉴</button></header>
+    <header><a class="brand home-link" href="#quiz" aria-label="晶遇首页"><span>◇</span> 晶遇 <small>LUCENT FATE</small></a><span class="header-note">读懂自己 · 选对晶石</span><button class="text-btn" id="libraryTop">水晶图鉴</button></header>
     <main>
       <div class="intro"><p class="eyebrow">YOUR INNER NATURE, IN CRYSTAL</p><h1>让每一颗，<br class="mobile">都有来由。</h1><p>从性格、愿望到五行，找到此刻更适合你的水晶组合。</p></div>
       <div class="workspace">
         <section id="panel"></section>
       </div>
-      <footer><span>◇ 晶遇 JINGYU</span><p>以晶石为镜，认识独一无二的自己。</p><small>性格问卷用于自我探索；喜用神和晶石寓意属于简化文化参考，不构成科学测评、医疗建议或功效承诺。</small></footer>
+      <footer><span>◇ 晶遇 LUCENT FATE</span><p>以晶石为镜，认识独一无二的自己。</p><small>性格问卷用于自我探索；喜用神和晶石寓意属于简化文化参考，不构成科学测评、医疗建议或功效承诺。</small></footer>
     </main>
   </div>
 
   <section id="libraryPage" class="library-page" hidden aria-labelledby="libraryTitle">
-    <header class="result-header"><button class="result-back" id="closeLibrary">返回</button><a class="brand home-link" href="#quiz" aria-label="晶遇首页"><span>◇</span> 晶遇 <small>JINGYU</small></a><span class="header-spacer"></span></header>
+    <header class="result-header"><button class="result-back" id="closeLibrary">返回</button><a class="brand home-link" href="#quiz" aria-label="晶遇首页"><span>◇</span> 晶遇 <small>LUCENT FATE</small></a><span class="header-spacer"></span></header>
     <main class="library-main"><div class="library-hero"><p class="eyebrow">THE CRYSTAL LIBRARY</p><h1 id="libraryTitle">水晶图鉴</h1><p class="muted"><strong id="libraryCount">78</strong> 种水晶与矿物珠材 · 按名称、色彩与设计寓意探索</p></div>
       <label class="search-label" for="crystalSearch">搜索珠材</label><input id="crystalSearch" class="search" type="search" placeholder="例如：紫水晶、绿幽灵、海蓝宝">
       <div id="filters" class="filters"></div><div id="catalog" class="catalog"></div>
@@ -27,7 +27,7 @@
   </section>
 
   <section id="resultPage" class="result-page" hidden aria-labelledby="resultTitle">
-    <header class="result-header"><button class="result-back" id="resultBack">调整信息</button><a class="brand home-link" href="#quiz" aria-label="晶遇首页"><span>◇</span> 晶遇 <small>JINGYU</small></a><button class="text-btn" id="resultLibrary">水晶图鉴</button></header>
+    <header class="result-header"><button class="result-back" id="resultBack">调整信息</button><a class="brand home-link" href="#quiz" aria-label="晶遇首页"><span>◇</span> 晶遇 <small>LUCENT FATE</small></a><button class="text-btn" id="resultLibrary">水晶图鉴</button></header>
     <main class="result-main">
       <div class="result-intro"><p class="eyebrow">YOUR CRYSTAL PROFILE</p><h1 id="resultTitle">你的水晶分析报告</h1><p id="resultSummary" class="muted"></p><div id="resultTraits" class="traits"></div></div>
 
@@ -42,7 +42,7 @@
       <section class="poem-section">
         <div class="section-title"><p class="eyebrow">02 · A SIGN FOR NOW</p><h2>一签，赠予此刻的你</h2></div>
         <div class="poem-card" aria-labelledby="poemTitle">
-          <div class="poem-art"><p class="eyebrow">JINGYU · INNER SIGN</p><h2 id="poemTitle">此刻之签</h2><div id="resultPoem" class="result-poem"></div><span class="poem-seal" aria-label="晶遇印"><i>晶</i><i>遇</i></span><span class="slip-mark" aria-hidden="true">心签 · 第 <b>一</b> 籤</span></div>
+          <div class="poem-art"><p class="eyebrow">LUCENT FATE · INNER SIGN</p><h2 id="poemTitle">此刻之签</h2><div id="resultPoem" class="result-poem"></div><span class="poem-seal" aria-label="晶遇印"><i>晶</i><i>遇</i></span><span class="slip-mark" aria-hidden="true">心签 · 第 <b>一</b> 籤</span></div>
           <div class="poem-reading"><p class="eyebrow">GUIDANCE</p><h3>此签指引</h3><div id="poemExplanation"></div></div>
         </div>
       </section>
@@ -65,6 +65,6 @@
   <dialog id="detail"><button id="closeDetail" aria-label="关闭">×</button><div id="detailBody"></div></dialog>
   <dialog id="resetConfirm" class="confirm-dialog"><p class="eyebrow">START AGAIN</p><h2>清空当前测试结果？</h2><p>重新测试会清空本次问卷、出生信息和手串搭配，之后无法恢复。</p><div class="dialog-actions"><button class="secondary" id="cancelReset">保留结果</button><button class="primary" id="confirmReset">清空并重新测试</button></div></dialog>
   <div id="saveToast" class="save-toast" role="status" aria-live="polite" hidden></div>
-  <script src="assets/lunar.js"></script><script src="app.js"></script>
+  <script src="assets/lunar.js"></script><script src="poem-couplets.js"></script><script src="app.js"></script>
 </body>
 </html>
