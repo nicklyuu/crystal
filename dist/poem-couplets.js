@@ -55,6 +55,8 @@ const coupletDecisionNotes=['你重视逻辑与可靠性，适合给思考设期
 const coupletChangeNotes=['变化发生时，你习惯先恢复秩序；这次只保住主线，其余允许重排。','你会先观察再调整，记得给观察设一个结束信号。','你擅长顺势转弯，只需在转弯前再次确认目的地。'];
 const coupletGoalActions=['先盘点时间、金钱和承诺，只保留能够长期积累的投入。','选定一个最值得推进的目标，把它拆成可以连续完成的阶段。','固定一段不被打扰的恢复时间，同时减少没有必要的回应。','把期待和边界各说清一件，再用一段时间观察行动是否一致。','先说出最重要的一句话，让表达有重点，也给对方回应的空间。','围绕一个问题完成一次输出，用作品、笔记或实践检验理解。'];
 const coupletBandLabels={surge:'得势',flow:'顺势',build:'蓄势',turn:'转势',rest:'守势'};
+const coupletPaceLabels=['审慎观望','稳步试探','乘势行动'];
+const coupletBandMeanings={surge:'命盘方向、性格状态与目标三者相互加力，眼下有条件主动争取。',flow:'命盘的平衡方向与目标基本同路，顺着已有优势推进会比较省力。',build:'方向没有冲突，但力量尚未完全汇合，需要靠持续行动把条件养成。',turn:'目标并非不可实现，只是现有习惯与所需力量有落差，应先调整方法。',rest:'此刻更需要保存心力、整理基础，强行推进反而容易消耗已有积累。'};
 
 function generateCouplet(chart,a){
   const goal=a[8],profile=goalProfiles[goal],pack=coupletLibrary[goal];
@@ -70,9 +72,9 @@ function generateCouplet(chart,a){
   return{
     lines,
     guidance:[
-      `这两句以${pack.motif}为同一条线。${coupletInnerNotes[a[1]]}第二句由${chart.useGod}用神接续前句，判断为“${coupletBandLabels[band]}”：${pack.reading[band]}`,
-      `${coupletEnergyNotes[a[0]]}${coupletDecisionNotes[a[2]]}${coupletChangeNotes[a[3]]}`,
-      `你是${chart.dayStem}${chart.dayElement}日主，以${chart.useGod}为用、${chart.joyGod}为喜。这里说的不是结果注定，而是实现「${goals[goal].name}」时更适合的用力方式。${coupletGoalActions[goal]}`
+      {label:'两句合看',text:`“${lines[0]}”以${dayImage}写你的${coupletPaceLabels[a[1]]}；“${lines[1]}”再用${useImage}承接同一组${pack.motif}意象，回答这份性格如何走向「${goals[goal].name}」。${coupletInnerNotes[a[1]]}`},
+      {label:'命盘走势',text:`你是${chart.dayStem}${chart.dayElement}日主，以${chart.useGod}为用、${chart.joyGod}为喜，本签落在“${coupletBandLabels[band]}”。${coupletBandMeanings[band]}${pack.reading[band]}`},
+      {label:'此刻可做',text:`${coupletEnergyNotes[a[0]]}${coupletDecisionNotes[a[2]]}${coupletChangeNotes[a[3]]}${coupletGoalActions[goal]}`}
     ],
     band
   };
