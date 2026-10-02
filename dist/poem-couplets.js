@@ -84,7 +84,8 @@ function generateCouplet(chart,a){
     lines,
     guidance:[
       {label:'诗面白话',text:`${coupletSurfaceOpenings[a[1]](lines[0])}${coupletSurfaceEndings[band](lines[1])}`},
-      {label:'深层寓意',text:`两句从人的选择写到事情的去向：${coupletInnerNotes[a[1]]}${coupletBandMeanings[band]}对你所求的「${goals[goal].name}」而言，${pack.reading[band]}`},
+      {label:'深层寓意',text:`两句从人的选择写到事情的去向：${coupletInnerNotes[a[1]]}对你所求的「${goals[goal].name}」而言，${pack.reading[band]}`},
+      {label:'命盘走势',text:`你的日主为${chart.dayStem}${chart.dayElement}，以${chart.useGod}为用神、${chart.joyGod}为喜神。这一签属于“${coupletBandLabels[band]}”：${coupletBandMeanings[band]}`},
       {label:'此刻指引',text:`${coupletEnergyNotes[a[0]]}${coupletDecisionNotes[a[2]]}${coupletChangeNotes[a[3]]}${coupletGoalActions[goal]}`}
     ],
     band
