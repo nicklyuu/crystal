@@ -45,17 +45,28 @@ const coupletLibrary=[
   }
 ];
 
+const coupletSurfaceOpenings=[
+  line=>`“${line}”说的是：诗中人面对眼前的景象没有急着行动，而是先停下来细看，等心里有了答案。`,
+  line=>`“${line}”说的是：前方已经出现一条路，诗中人一边向前，一边确认脚下是否稳妥。`,
+  line=>`“${line}”说的是：风已经起来，诗中人也推开了门，决定顺着眼前的机会向前。`
+];
+const coupletSurfaceEndings={
+  surge:line=>`“${line}”则说：时机已经成熟，只要迈出这一步，眼前的道路便会随之打开。`,
+  flow:line=>`“${line}”则说：事情正借着一股温和的力量向前，不必用力催促，也能渐渐抵达。`,
+  build:line=>`“${line}”则说：眼下虽然还没抵达终点，变化却已经在安静地积蓄。`,
+  turn:line=>`“${line}”则说：原来的走法需要调整，先停下来辨清边界，再换一个方向继续。`,
+  rest:line=>`“${line}”则说：事情还没到催促结果的时候，先收住脚步，给人和事留一点时间。`
+};
 const coupletInnerNotes=[
-  '前句写你先观察、再落子的习惯；谨慎保护了判断，也可能推迟第一步。',
-  '前句写你边走边确认的节奏；你适合从连续的小反馈里修正方向。',
-  '前句写你见机便起的力量；速度是优势，也需要一个检查代价的停顿。'
+  '这也映出你做重要选择时的谨慎：它能保护判断，却也容易让第一步来得太迟。',
+  '这也映出你边走边确认的习惯。你不必一次想清所有答案，连续的小反馈会替你校准方向。',
+  '这也映出你见到机会便愿意行动的力量。速度是优势，但关键处仍要留一次检查代价的停顿。'
 ];
 const coupletEnergyNotes=['你靠独处恢复，决定越重要，越要先替自己隔出安静。','你会在可信的人身边看清自己，适度商量能减少无效内耗。','你容易被环境和回应点亮，但别让外界热度替你决定方向。'];
 const coupletDecisionNotes=['你重视逻辑与可靠性，适合给思考设期限，到点便用行动验证。','你会同时照顾现实与感受，下一步要明确哪一项不能妥协。','你在意内心真实与人的感受，表达需求时需要少一点猜测。'];
 const coupletChangeNotes=['变化发生时，你习惯先恢复秩序；这次只保住主线，其余允许重排。','你会先观察再调整，记得给观察设一个结束信号。','你擅长顺势转弯，只需在转弯前再次确认目的地。'];
 const coupletGoalActions=['先盘点时间、金钱和承诺，只保留能够长期积累的投入。','选定一个最值得推进的目标，把它拆成可以连续完成的阶段。','固定一段不被打扰的恢复时间，同时减少没有必要的回应。','把期待和边界各说清一件，再用一段时间观察行动是否一致。','先说出最重要的一句话，让表达有重点，也给对方回应的空间。','围绕一个问题完成一次输出，用作品、笔记或实践检验理解。'];
 const coupletBandLabels={surge:'得势',flow:'顺势',build:'蓄势',turn:'转势',rest:'守势'};
-const coupletPaceLabels=['审慎观望','稳步试探','乘势行动'];
 const coupletBandMeanings={surge:'命盘方向、性格状态与目标三者相互加力，眼下有条件主动争取。',flow:'命盘的平衡方向与目标基本同路，顺着已有优势推进会比较省力。',build:'方向没有冲突，但力量尚未完全汇合，需要靠持续行动把条件养成。',turn:'目标并非不可实现，只是现有习惯与所需力量有落差，应先调整方法。',rest:'此刻更需要保存心力、整理基础，强行推进反而容易消耗已有积累。'};
 
 function generateCouplet(chart,a){
@@ -72,9 +83,9 @@ function generateCouplet(chart,a){
   return{
     lines,
     guidance:[
-      {label:'两句合看',text:`“${lines[0]}”以${dayImage}写你的${coupletPaceLabels[a[1]]}；“${lines[1]}”再用${useImage}承接同一组${pack.motif}意象，回答这份性格如何走向「${goals[goal].name}」。${coupletInnerNotes[a[1]]}`},
-      {label:'命盘走势',text:`你是${chart.dayStem}${chart.dayElement}日主，以${chart.useGod}为用、${chart.joyGod}为喜，本签落在“${coupletBandLabels[band]}”。${coupletBandMeanings[band]}${pack.reading[band]}`},
-      {label:'此刻可做',text:`${coupletEnergyNotes[a[0]]}${coupletDecisionNotes[a[2]]}${coupletChangeNotes[a[3]]}${coupletGoalActions[goal]}`}
+      {label:'诗面白话',text:`${coupletSurfaceOpenings[a[1]](lines[0])}${coupletSurfaceEndings[band](lines[1])}`},
+      {label:'深层寓意',text:`两句从人的选择写到事情的去向：${coupletInnerNotes[a[1]]}${coupletBandMeanings[band]}对你所求的「${goals[goal].name}」而言，${pack.reading[band]}`},
+      {label:'此刻指引',text:`${coupletEnergyNotes[a[0]]}${coupletDecisionNotes[a[2]]}${coupletChangeNotes[a[3]]}${coupletGoalActions[goal]}`}
     ],
     band
   };
