@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101b1c">
   <meta name="description" content="结合性格目标与东方五行，生成专属水晶珠材分析和手串方案。"><title>晶遇 · 找到与你共鸣的水晶</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23101b1c'/%3E%3Cpath d='M16 5 26 14 16 27 6 14Z' fill='none' stroke='%23d8ba80' stroke-width='2'/%3E%3C/svg%3E"><link rel="stylesheet" href="style.css?v=3">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23101b1c'/%3E%3Cpath d='M16 5 26 14 16 27 6 14Z' fill='none' stroke='%23d8ba80' stroke-width='2'/%3E%3C/svg%3E"><link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
   <div id="appShell">
@@ -56,7 +56,14 @@
   </section>
   <dialog id="detail"><button id="closeDetail" aria-label="关闭">×</button><div id="detailBody"></div></dialog>
   <dialog id="resetConfirm" class="confirm-dialog"><p class="eyebrow">START AGAIN</p><h2>清空当前测试结果？</h2><p>重新测试会清空本次问卷、出生信息和手串搭配，之后无法恢复。</p><div class="dialog-actions"><button class="secondary" id="cancelReset">保留结果</button><button class="primary" id="confirmReset">清空并重新测试</button></div></dialog>
+  <dialog id="sharePreview" class="share-preview" aria-labelledby="sharePreviewTitle">
+    <div class="share-preview-head"><div><p class="eyebrow">SHARE POSTER PREVIEW</p><h2 id="sharePreviewTitle">分享图预览</h2></div><button id="closeSharePreview" class="share-preview-close" aria-label="关闭分享图预览">×</button></div>
+    <p id="sharePreviewName" class="share-preview-name"></p>
+    <div class="share-preview-frame"><img id="sharePreviewImage" alt="专属水晶手串分享图预览"></div>
+    <p class="share-preview-note">确认效果后保存图片，你也可以关闭预览继续调整手串。</p>
+    <div class="share-preview-actions"><button class="secondary" id="returnToDesign">返回调整</button><button class="primary" id="saveSharePoster">保存到本地</button></div>
+  </dialog>
   <div id="saveToast" class="save-toast" role="status" aria-live="polite" hidden></div>
-  <script src="assets/lunar.js"></script><script src="poem-couplets.js?v=7"></script><script src="app.js?v=11"></script>
+  <script src="assets/lunar.js"></script><script src="poem-couplets.js?v=7"></script><script src="app.js?v=12"></script>
 </body>
 </html>
