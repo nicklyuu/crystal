@@ -2,60 +2,108 @@ const coupletElements=['木','火','土','金','水'];
 
 const coupletLibrary=[
   {
-    motif:'水流与归仓',
-    images:{木:'新禾',火:'灯市',土:'良田',金:'金穗',水:'清泉'},
-    inner:['入眼细思量','在手量深浅','乘风逐大潮'],
-    outcome:{surge:'得势满归仓',flow:'引路聚成川',build:'微聚待丰年',turn:'先守再开仓',rest:'宜藏莫逐潮'},
+    openings:[
+      ['临泉细数来时路','灯下徐观仓廪数','新禾入眼待晴时'],
+      ['沿溪试步看深浅','一舟轻探水云程','小锄试土问丰年'],
+      ['顺潮举棹开新浦','乘风携种向春田','见水开渠引入仓']
+    ],
+    outcomes:{
+      surge:['百川归海仓廪实','新禾得雨满秋仓','金穗迎风照晚晴'],
+      flow:['细水长流终入海','春泉引路润良田','一渠清水到粮仓'],
+      build:['微泉日积成深浦','小禾经雨渐成阴','寸土勤耕候岁丰'],
+      turn:['且收散水归一渠','先理旧仓再纳新','回舟择港再扬帆'],
+      rest:['闭仓静候东风信','藏种深耕待雨来','潮退方知水路深']
+    },
     reading:{surge:'命盘与性格都在替资源积累加力，眼下适合把握一项已经出现的明确机会。',flow:'平衡方向与资源目标同路，已有能力容易沉淀成看得见的结果。',build:'条件正在形成，但真正的丰盛来自持续收束，而不是同时追逐更多入口。',turn:'当前仍可求进，只是要先减少分散投入和情绪化选择。',rest:'眼下更适合保住基本盘，整理时间、金钱与承诺，再等待清楚的机会。'}
   },
   {
-    motif:'远帆与山路',
-    images:{木:'青梯',火:'明炬',土:'长阶',金:'利剑',水:'云帆'},
-    inner:['在胸犹候岸','随步试高峰','出鞘欲凌峰'],
-    outcome:{surge:'得势上青云',flow:'借势正扬帆',build:'蓄力亦登峰',turn:'收锋再启程',rest:'守位待东风'},
+    openings:[
+      ['山前静看云开处','灯下重排千里程','剑未出鞘先观势'],
+      ['石阶逐级试高低','轻帆探路过前湾','一峰行罢再登峰'],
+      ['提灯踏雾上高台','长风催帆出远津','拔剑迎光破晓云']
+    ],
+    outcomes:{
+      surge:['云开正见最高峰','长风送我上青云','一炬燃开万里程'],
+      flow:['借得东风帆自远','山门次第向人开','明灯一路照前程'],
+      build:['石阶虽缓渐登高','每日一峰终见顶','微光相续到天明'],
+      turn:['收锋换路再登临','且下孤峰择新径','停帆辨向再开航'],
+      rest:['暂倚山亭候好风','藏锋磨剑待天明','守住孤灯养远心']
+    },
     reading:{surge:'目标、命盘与行动倾向彼此呼应，适合承担一件真正有难度的事。',flow:'命盘所需力量与事业推进方向相合，现在应把想法变成明确目标。',build:'前进条件已经存在，突破来自连续完成，而不是等待一次完美机会。',turn:'行动力并不缺，眼下更需要收拢锋芒、厘清优先级。',rest:'目前不宜同时开启太多战线，先守住位置、补齐能力，再等风向清楚。'}
   },
   {
-    motif:'心湖与月色',
-    images:{木:'松影',火:'心灯',土:'静岭',金:'清钟',水:'秋潭'},
-    inner:['照心多问影','随息理微澜','临风急渡舟'],
-    outcome:{surge:'得时自澄明',flow:'引静照初心',build:'守息水渐平',turn:'停桨听潮声',rest:'闭户养微光'},
+    openings:[
+      ['松影临窗静照心','秋潭无语照眉间','钟声一落听余音'],
+      ['沿湖缓步理微澜','一息一行过晚汀','轻舟试水近晴湾'],
+      ['推窗放月入心湖','解缆迎风渡暮潮','携灯穿雨向晴川']
+    ],
+    outcomes:{
+      surge:['云散心湖月自明','潮平忽见一天星','钟鸣雾散见青山'],
+      flow:['清风入室水纹平','月随静水照归程','松声渐引夜心安'],
+      build:['一池微澜渐次平','守灯长夜亦生明','日日添泉润静湖'],
+      turn:['且停舟楫听潮声','收桨回湾辨水程','闭门一夜理心弦'],
+      rest:['掩门静养一灯温','深潭抱月候风停','松间小坐待云开']
+    },
     reading:{surge:'命盘与性格都指向清醒的稳定，主动整理生活会很快看见变化。',flow:'命盘的平衡方向有助于安定心绪，越允许自己恢复，判断反而越清楚。',build:'稳定感可以建立，但需要固定的休息、边界和日常节奏。',turn:'当前最该调整的是过度回应和自我催促，先停下来才能看见问题。',rest:'能量正需要回收，不必逼自己立刻想通；先养住睡眠、秩序和微小兴趣。'}
   },
   {
-    motif:'双燕与同舟',
-    images:{木:'花枝',火:'暖烛',土:'长桥',金:'双环',水:'同舟'},
-    inner:['近心怕惊春','同路试深浅','迎风便启门'],
-    outcome:{surge:'逢春两翼齐',flow:'借暖可同舟',build:'慢系结更牢',turn:'明界再同舟',rest:'留白待花开'},
+    openings:[
+      ['花前欲语怕惊春','双燕低回问归期','同舟未发先听潮'],
+      ['并肩试步过长桥','同舟缓渡看潮痕','双燕衔枝试新巢'],
+      ['迎风推户见春来','同舟举棹向晴湾','花开便寄一枝春']
+    ],
+    outcomes:{
+      surge:['双燕逢春比翼归','两心相照见花明','同舟得水过晴川'],
+      flow:['一灯分暖照双心','同舟借水到春湾','花信随风入两庭'],
+      build:['慢系同心结更牢','长桥一步一相逢','新巢添羽待春深'],
+      turn:['先明界线再同舟','各整船帆再并行','隔岸传灯辨真心'],
+      rest:['长桥留白待花开','同舟暂泊听潮回','双燕分飞各养春']
+    },
     reading:{surge:'你有表达感受的意愿，也有承接关系的力量，真诚靠近容易得到回应。',flow:'命盘所需力量与建立关系的方向相合，坦白会让关系更稳。',build:'你有靠近别人的能力，但关系需要用时间验证可靠。',turn:'若想真正靠近一个人，需要先把期待与边界说清。',rest:'这段时间更适合留出空间观察，不必用浓烈付出来证明关系。'}
   },
   {
-    motif:'清音与回声',
-    images:{木:'竹笛',火:'清歌',土:'回谷',金:'玉磬',水:'流音'},
-    inner:['藏声迟落笔','试音问回声','乘风欲破云'],
-    outcome:{surge:'得风响晴空',flow:'乘势有回声',build:'次第传清音',turn:'调弦再放歌',rest:'含光养本音'},
+    openings:[
+      ['玉磬含声待静听','竹笛未吹先定音','清歌欲发问初心'],
+      ['试调一曲问回声','沿溪轻唱辨余音','落笔三行试本心'],
+      ['一笛穿云破晓空','开喉迎风唱远川','挥毫落纸起新声']
+    ],
+    outcomes:{
+      surge:['清音得势满晴空','一曲飞过万重山','落字成光照远川'],
+      flow:['余音随水到人间','清歌借月渡长川','一笛顺风传远庭'],
+      build:['声声次第入人心','一字一音渐成章','微声相续亦悠长'],
+      turn:['重调心弦再放歌','且收杂响理清音','删繁留一句真言'],
+      rest:['含光养气待清音','暂收长笛听心声','留白无言亦有声']
+    },
     reading:{surge:'表达欲、判断与外部时机都已具备，适合清楚说出真正立场。',flow:'命盘的平衡方向支持表达与连接，只要真实，外界更容易听见重点。',build:'你并非没有表达力，而要减少反复解释，把内容分出主次。',turn:'当前的问题不是音量不够，而是情绪和重点挤在一起，需要先整理。',rest:'此刻不必急着争取所有人的理解，先弄清自己真正想说的那一句。'}
   },
   {
-    motif:'书灯与山径',
-    images:{木:'书林',火:'书灯',土:'石径',金:'墨锋',水:'墨海'},
-    inner:['入心先问径','逐页探幽深','燃心欲问天'],
-    outcome:{surge:'得光照长程',flow:'引泉活旧知',build:'守一终见山',turn:'收卷攻一题',rest:'温书养寸心'},
+    openings:[
+      ['灯下翻书寻旧问','墨池临夜照疑心','石径未行先看山'],
+      ['逐页寻踪入书林','沿阶试步问青山','落笔一行探旧疑'],
+      ['提笔凌云问九天','燃灯破夜读千篇','携书踏月入青山']
+    ],
+    outcomes:{
+      surge:['书灯得势照长程','一卷新开见远山','落笔成舟渡学海'],
+      flow:['旧知引出一泉新','书灯相续照前程','活水融通旧学门'],
+      build:['守得一题见深山','逐页成阶渐登高','微光积久满书窗'],
+      turn:['收卷专攻一道题','且停博览究一门','删去旁枝见主峰'],
+      rest:['温书静候寸心明','合卷养神待晓光','守住书灯养远心']
+    },
     reading:{surge:'好奇心、行动力与命盘方向互相支持，适合开启一段集中的学习计划。',flow:'命盘所需力量与学习成长相合，输入若及时转为输出，会形成明显积累。',build:'你有持续学习的条件，关键是减少资料囤积，用阶段成果检验理解。',turn:'当前不是学得不够，而是方向太多；先做深一个问题会更有效。',rest:'现在适合复习、整理与消化，不必急着开启新的庞大主题。'}
   }
 ];
 
 const coupletSurfaceOpenings=[
-  line=>`“${line}”说的是：诗中人面对眼前的景象没有急着行动，而是先停下来细看，等心里有了答案。`,
-  line=>`“${line}”说的是：前方已经出现一条路，诗中人一边向前，一边确认脚下是否稳妥。`,
-  line=>`“${line}”说的是：风已经起来，诗中人也推开了门，决定顺着眼前的机会向前。`
+  line=>`“${line}”说的是：面对眼前的问题，诗中人没有急着行动，而是先停下来观察，等心里有了较清楚的答案。`,
+  line=>`“${line}”说的是：方向已经出现，诗中人先迈出一小步，再从沿途的变化中确认下一步。`,
+  line=>`“${line}”说的是：诗中人感到时机已经来到，于是放下犹疑，决定主动向前。`
 ];
 const coupletSurfaceEndings={
   surge:line=>`“${line}”则说：时机已经成熟，只要迈出这一步，眼前的道路便会随之打开。`,
   flow:line=>`“${line}”则说：事情正借着一股温和的力量向前，不必用力催促，也能渐渐抵达。`,
   build:line=>`“${line}”则说：眼下虽然还没抵达终点，变化却已经在安静地积蓄。`,
-  turn:line=>`“${line}”则说：原来的走法需要调整，先停下来辨清边界，再换一个方向继续。`,
-  rest:line=>`“${line}”则说：事情还没到催促结果的时候，先收住脚步，给人和事留一点时间。`
+  turn:line=>`“${line}”则说：原来的做法需要调整，先收回分散的力气，再把精力放到真正重要的地方。`,
+  rest:line=>`“${line}”则说：事情还没到催促结果的时候，先收住脚步，给自己和局面留一点时间。`
 };
 const coupletInnerNotes=[
   '这也映出你做重要选择时的谨慎：它能保护判断，却也容易让第一步来得太迟。',
@@ -73,19 +121,20 @@ function generateCouplet(chart,a){
   const goal=a[8],profile=goalProfiles[goal],pack=coupletLibrary[goal];
   let score=0;
   if(profile.elements[0]===chart.useGod)score+=3;else if(profile.elements.includes(chart.useGod))score+=1;
-  if(profile.elements[0]===chart.joyGod)score+=2;else if(profile.elements.includes(chart.joyGod))score+=1;
+  if(chart.joyGod!==chart.useGod){if(profile.elements[0]===chart.joyGod)score+=2;else if(profile.elements.includes(chart.joyGod))score+=1}
   if(profile.elements[0]===chart.dayElement)score+=1;
   if(a[7]===[1,2,0,1,2,0][goal])score+=1;
   if(a[5]===1||(a[5]===2&&[1,4].includes(goal))||(a[5]===0&&[2,3].includes(goal)))score+=1;
   const band=score>=7?'surge':score>=5?'flow':score>=3?'build':score>=1?'turn':'rest';
-  const dayImage=pack.images[chart.dayElement],useImage=pack.images[chart.useGod];
-  const lines=[`${dayImage}${pack.inner[a[1]]}`,`${useImage}${pack.outcome[band]}`];
+  const firstIndex=(coupletElements.indexOf(chart.dayElement)+a[0]+a[2])%3;
+  const secondIndex=(coupletElements.indexOf(chart.useGod)+a[3]+a[7])%3;
+  const lines=[pack.openings[a[1]][firstIndex],pack.outcomes[band][secondIndex]];
   return{
     lines,
     guidance:[
       {label:'诗面白话',text:`${coupletSurfaceOpenings[a[1]](lines[0])}${coupletSurfaceEndings[band](lines[1])}`},
       {label:'深层寓意',text:`两句从人的选择写到事情的去向：${coupletInnerNotes[a[1]]}对你所求的「${goals[goal].name}」而言，${pack.reading[band]}`},
-      {label:'命盘走势',text:`你的日主为${chart.dayStem}${chart.dayElement}，以${chart.useGod}为用神、${chart.joyGod}为喜神。这一签属于“${coupletBandLabels[band]}”：${coupletBandMeanings[band]}`},
+      {label:'命盘走势',text:chart.useGod===chart.joyGod?`你的日主为${chart.dayStem}${chart.dayElement}，此处用神与喜神同取${chart.useGod}，表示主要调节与辅助方向一致。这一签属于“${coupletBandLabels[band]}”：${coupletBandMeanings[band]}`:`你的日主为${chart.dayStem}${chart.dayElement}，以${chart.useGod}为用神、${chart.joyGod}为喜神。这一签属于“${coupletBandLabels[band]}”：${coupletBandMeanings[band]}`},
       {label:'此刻指引',text:`${coupletEnergyNotes[a[0]]}${coupletDecisionNotes[a[2]]}${coupletChangeNotes[a[3]]}${coupletGoalActions[goal]}`}
     ],
     band
