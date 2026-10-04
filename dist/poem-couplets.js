@@ -93,23 +93,6 @@ const coupletLibrary=[
   }
 ];
 
-const coupletSurfaceOpenings=[
-  line=>`“${line}”说的是：面对眼前的问题，诗中人没有急着行动，而是先停下来观察，等心里有了较清楚的答案。`,
-  line=>`“${line}”说的是：方向已经出现，诗中人先迈出一小步，再从沿途的变化中确认下一步。`,
-  line=>`“${line}”说的是：诗中人感到时机已经来到，于是放下犹疑，决定主动向前。`
-];
-const coupletSurfaceEndings={
-  surge:line=>`“${line}”则说：时机已经成熟，只要迈出这一步，眼前的道路便会随之打开。`,
-  flow:line=>`“${line}”则说：事情正借着一股温和的力量向前，不必用力催促，也能渐渐抵达。`,
-  build:line=>`“${line}”则说：眼下虽然还没抵达终点，变化却已经在安静地积蓄。`,
-  turn:line=>`“${line}”则说：原来的做法需要调整，先收回分散的力气，再把精力放到真正重要的地方。`,
-  rest:line=>`“${line}”则说：事情还没到催促结果的时候，先收住脚步，给自己和局面留一点时间。`
-};
-const coupletInnerNotes=[
-  '这也映出你做重要选择时的谨慎：它能保护判断，却也容易让第一步来得太迟。',
-  '这也映出你边走边确认的习惯。你不必一次想清所有答案，连续的小反馈会替你校准方向。',
-  '这也映出你见到机会便愿意行动的力量。速度是优势，但关键处仍要留一次检查代价的停顿。'
-];
 const coupletEnergyNotes=['你靠独处恢复，决定越重要，越要先替自己隔出安静。','你会在可信的人身边看清自己，适度商量能减少无效内耗。','你容易被环境和回应点亮，但别让外界热度替你决定方向。'];
 const coupletDecisionNotes=['你重视逻辑与可靠性，适合给思考设期限，到点便用行动验证。','你会同时照顾现实与感受，下一步要明确哪一项不能妥协。','你在意内心真实与人的感受，表达需求时需要少一点猜测。'];
 const coupletChangeNotes=['变化发生时，你习惯先恢复秩序；这次只保住主线，其余允许重排。','你会先观察再调整，记得给观察设一个结束信号。','你擅长顺势转弯，只需在转弯前再次确认目的地。'];
@@ -129,14 +112,5 @@ function generateCouplet(chart,a){
   const firstIndex=(coupletElements.indexOf(chart.dayElement)+a[0]+a[2])%3;
   const secondIndex=(coupletElements.indexOf(chart.useGod)+a[3]+a[7])%3;
   const lines=[pack.openings[a[1]][firstIndex],pack.outcomes[band][secondIndex]];
-  return{
-    lines,
-    guidance:[
-      {label:'诗面白话',text:`${coupletSurfaceOpenings[a[1]](lines[0])}${coupletSurfaceEndings[band](lines[1])}`},
-      {label:'深层寓意',text:`两句从人的选择写到事情的去向：${coupletInnerNotes[a[1]]}对你所求的「${goals[goal].name}」而言，${pack.reading[band]}`},
-      {label:'命盘走势',text:chart.useGod===chart.joyGod?`你的日主为${chart.dayStem}${chart.dayElement}，此处用神与喜神同取${chart.useGod}，表示主要调节与辅助方向一致。这一签属于“${coupletBandLabels[band]}”：${coupletBandMeanings[band]}`:`你的日主为${chart.dayStem}${chart.dayElement}，以${chart.useGod}为用神、${chart.joyGod}为喜神。这一签属于“${coupletBandLabels[band]}”：${coupletBandMeanings[band]}`},
-      {label:'此刻指引',text:`${coupletEnergyNotes[a[0]]}${coupletDecisionNotes[a[2]]}${coupletChangeNotes[a[3]]}${coupletGoalActions[goal]}`}
-    ],
-    band
-  };
+  return{lines,band};
 }

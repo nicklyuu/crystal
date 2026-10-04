@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101b1c">
   <meta name="description" content="结合性格目标与东方五行，生成专属水晶珠材分析和手串方案。"><title>晶遇 · 找到与你共鸣的水晶</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23101b1c'/%3E%3Cpath d='M16 5 26 14 16 27 6 14Z' fill='none' stroke='%23d8ba80' stroke-width='2'/%3E%3C/svg%3E"><link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23101b1c'/%3E%3Cpath d='M16 5 26 14 16 27 6 14Z' fill='none' stroke='%23d8ba80' stroke-width='2'/%3E%3C/svg%3E"><link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
   <div id="appShell">
@@ -35,25 +35,17 @@
         <div class="section-title"><p class="eyebrow">01 · BAZI & PERSONALITY</p><h2>命盘与性格反馈</h2><p class="muted">出生信息呈现先天五行倾向；问卷反映你此刻想加强、补足或靠近的状态。</p></div>
         <div id="pillars" class="pillars"></div>
         <div id="reportHighlights" class="report-highlights"></div>
-        <div class="report-columns"><div><h3>五行分布</h3><div id="elementBars" class="element-bars"></div></div><div><h3>综合解读</h3><div id="reportNarrative" class="report-narrative"></div></div></div>
+        <div class="report-columns"><div><h3>五行分布</h3><div id="elementBars" class="element-bars"></div><div class="report-poem" aria-labelledby="poemTitle"><div class="poem-art"><p class="eyebrow">LUCENT FATE · INNER SIGN</p><h2 id="poemTitle">此刻之签</h2><div id="resultPoem" class="result-poem"></div><span class="poem-seal" aria-label="晶遇印"><i>晶</i><i>遇</i></span><span class="slip-mark" aria-hidden="true">心签 · 第 <b>一</b> 籤</span></div></div></div><div><h3>综合解读</h3><div id="reportNarrative" class="report-narrative"></div></div></div>
         <p id="chartNote" class="fine"></p>
       </section>
 
-      <section class="poem-section">
-        <div class="section-title"><p class="eyebrow">02 · A SIGN FOR NOW</p><h2>一签，赠予此刻的你</h2></div>
-        <div class="poem-card" aria-labelledby="poemTitle">
-          <div class="poem-art"><p class="eyebrow">LUCENT FATE · INNER SIGN</p><h2 id="poemTitle">此刻之签</h2><div id="resultPoem" class="result-poem"></div><span class="poem-seal" aria-label="晶遇印"><i>晶</i><i>遇</i></span><span class="slip-mark" aria-hidden="true">心签 · 第 <b>一</b> 籤</span></div>
-          <div class="poem-reading"><p class="eyebrow">GUIDANCE</p><h3>此签指引</h3><div id="poemExplanation"></div></div>
-        </div>
-      </section>
-
       <section class="recommend-section">
-        <div class="section-title"><p class="eyebrow">03 · YOUR CRYSTALS</p><h2>适合你的 3 种珠材</h2></div>
+        <div class="section-title"><p class="eyebrow">02 · YOUR CRYSTALS</p><h2>适合你的 3 种珠材</h2></div>
         <div id="recommendedMaterials" class="recommend-grid"></div>
       </section>
 
       <section class="design-section">
-        <div class="section-title"><p class="eyebrow">04 · WAYS TO WEAR</p><h2>佩戴方案</h2></div>
+        <div class="section-title"><p class="eyebrow">03 · WAYS TO WEAR</p><h2>佩戴方案</h2></div>
         <article class="design-card pure-card"><div class="design-title"><div><span class="version-no">01</span><p class="eyebrow">SINGLE CRYSTAL SERIES</p><h2>成串预览</h2></div></div><div id="pureControls" class="wear-controls"></div><div class="single-carousel"><div id="pureTrack" class="carousel-track" aria-label="三款单色手串，可左右滑动"></div><button class="carousel-arrow prev" id="purePrev" aria-label="上一款">‹</button><button class="carousel-arrow next" id="pureNext" aria-label="下一款">›</button></div><div id="pureDots" class="carousel-dots"></div><div id="pureLegend" class="legend"></div><p id="pureReason" class="design-reason"></p><button class="secondary save-design" data-download="pure">保存当前设计到本地</button></article>
         <article id="customLaunch" class="custom-launch"><p class="eyebrow">DESIGN YOUR OWN</p><h2>再生成一串，真正由你决定。</h2><p>选择进入手串的珠材、搭配方式和各自直径，预览会随着你的选择实时变化。</p><button class="primary" id="openCustomizer">点击生成专属单串组合搭配方案</button></article>
         <article id="mixedCustomizer" class="design-card customizer" hidden><div class="design-title"><div><span class="version-no">02</span><p class="eyebrow">YOUR CUSTOM MIX</p><h2>专属单串 · 实时搭配</h2></div><span class="tag">实时预览</span></div><div class="customizer-layout"><div id="customControls" class="custom-controls"></div><div><div class="result-stage custom-stage"><canvas id="mixedBracelet" width="900" height="900" aria-label="自定义水晶手串效果图"></canvas></div><div id="freeStats" class="free-stats" hidden></div><div id="mixedLegend" class="legend"></div><p id="mixedReason" class="design-reason"></p><button class="primary save-design" data-download="mixed">保存这款设计到本地</button></div></div></article>
@@ -65,6 +57,6 @@
   <dialog id="detail"><button id="closeDetail" aria-label="关闭">×</button><div id="detailBody"></div></dialog>
   <dialog id="resetConfirm" class="confirm-dialog"><p class="eyebrow">START AGAIN</p><h2>清空当前测试结果？</h2><p>重新测试会清空本次问卷、出生信息和手串搭配，之后无法恢复。</p><div class="dialog-actions"><button class="secondary" id="cancelReset">保留结果</button><button class="primary" id="confirmReset">清空并重新测试</button></div></dialog>
   <div id="saveToast" class="save-toast" role="status" aria-live="polite" hidden></div>
-  <script src="assets/lunar.js"></script><script src="poem-couplets.js?v=6"></script><script src="app.js?v=7"></script>
+  <script src="assets/lunar.js"></script><script src="poem-couplets.js?v=7"></script><script src="app.js?v=8"></script>
 </body>
 </html>

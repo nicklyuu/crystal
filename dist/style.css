@@ -43,3 +43,8 @@
 .poem-reading #poemExplanation strong{display:block;margin-bottom:6px;color:#c05a50;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif;font-size:11px;font-weight:600;letter-spacing:2px}
 @media(max-width:780px){.poem-card{grid-template-columns:1fr}.poem-art{min-height:570px;padding:82px 56px 72px}.poem-art::before{inset:13px;background-size:auto 97%}.poem-art .eyebrow{top:104px}.poem-art h2{top:124px}.result-poem{width:210px;height:300px;margin-top:20px;column-gap:13px;font-size:29px;transform:translateY(17px)}.result-poem::before{top:19px;height:262px}.poem-seal{bottom:63px;width:44px;height:58px}.slip-mark{left:21%;bottom:91px}.poem-reading{padding:32px 24px}}
 @media(max-width:390px){.poem-art{min-height:535px;padding-left:42px;padding-right:42px}.poem-art .eyebrow{top:91px}.poem-art h2{top:110px;font-size:15px}.result-poem{width:196px;height:284px;margin-top:16px;column-gap:12px;font-size:27px;transform:translateY(13px)}.result-poem::before{top:17px;height:250px}.poem-seal{bottom:55px;width:41px;height:54px}.slip-mark{left:20%;bottom:80px}}
+
+.report-poem{margin-top:30px;padding-top:26px;border-top:1px solid var(--line)}
+.report-poem .poem-art{min-height:570px;border:1px solid #493f37;border-radius:9px;box-shadow:0 22px 64px #0005}
+@media(max-width:780px){.report-poem{margin-top:24px;padding-top:22px}.report-poem .poem-art{min-height:550px}}
+@media(max-width:390px){.report-poem .poem-art{min-height:520px}}
