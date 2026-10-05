@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101b1c">
   <meta name="description" content="结合性格目标与东方五行，生成专属水晶珠材分析和手串方案。"><title>晶遇 · 找到与你共鸣的水晶</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23101b1c'/%3E%3Cpath d='M16 5 26 14 16 27 6 14Z' fill='none' stroke='%23d8ba80' stroke-width='2'/%3E%3C/svg%3E"><link rel="stylesheet" href="style.css?v=4">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23101b1c'/%3E%3Cpath d='M16 5 26 14 16 27 6 14Z' fill='none' stroke='%23d8ba80' stroke-width='2'/%3E%3C/svg%3E"><link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
   <div id="appShell">
-    <header><a class="brand home-link" href="#quiz" aria-label="晶遇首页"><span>◇</span> 晶遇 <small>LUCENT FATE</small></a><span class="header-note">读懂自己 · 选对晶石</span><button class="text-btn" id="libraryTop">水晶图鉴</button></header>
+    <header><a class="brand home-link" href="#start" aria-label="晶遇首页"><span>◇</span> 晶遇 <small>LUCENT FATE</small></a><span class="header-note">读懂自己 · 选对晶石</span><button class="text-btn" id="libraryTop">水晶图鉴</button></header>
     <main>
       <div class="intro"><p class="eyebrow">YOUR INNER NATURE, IN CRYSTAL</p><h1>让每一颗，<br class="mobile">都有来由。</h1><p>从性格、愿望到五行，找到此刻更适合你的水晶组合。</p></div>
       <div class="workspace">
@@ -18,7 +18,7 @@
   </div>
 
   <section id="libraryPage" class="library-page" hidden aria-labelledby="libraryTitle">
-    <header class="result-header"><button class="result-back" id="closeLibrary">返回</button><a class="brand home-link" href="#quiz" aria-label="晶遇首页"><span>◇</span> 晶遇 <small>LUCENT FATE</small></a><span class="header-spacer"></span></header>
+    <header class="result-header"><button class="result-back" id="closeLibrary">返回</button><a class="brand home-link" href="#start" aria-label="晶遇首页"><span>◇</span> 晶遇 <small>LUCENT FATE</small></a><span class="header-spacer"></span></header>
     <main class="library-main"><div class="library-hero"><p class="eyebrow">THE CRYSTAL LIBRARY</p><h1 id="libraryTitle">水晶图鉴</h1><p class="muted"><strong id="libraryCount">100</strong> 种水晶与矿物珠材 · 按五行、名称、色彩与设计寓意探索</p></div>
       <label class="search-label" for="crystalSearch">搜索珠材</label><input id="crystalSearch" class="search" type="search" placeholder="例如：紫水晶、绿幽灵、海蓝宝">
       <div id="filters" class="filters"></div><div id="catalog" class="catalog"></div>
@@ -27,7 +27,7 @@
   </section>
 
   <section id="resultPage" class="result-page" hidden aria-labelledby="resultTitle">
-    <header class="result-header"><button class="result-back" id="resultBack">调整信息</button><a class="brand home-link" href="#quiz" aria-label="晶遇首页"><span>◇</span> 晶遇 <small>LUCENT FATE</small></a><button class="text-btn" id="resultLibrary">水晶图鉴</button></header>
+    <header class="result-header"><button class="result-back" id="resultBack">调整信息</button><a class="brand home-link" href="#start" aria-label="晶遇首页"><span>◇</span> 晶遇 <small>LUCENT FATE</small></a><button class="text-btn" id="resultLibrary">水晶图鉴</button></header>
     <main class="result-main">
       <div class="result-intro"><p class="eyebrow">YOUR CRYSTAL PROFILE</p><h1 id="resultTitle">你的水晶分析报告</h1><p id="resultSummary" class="muted"></p><div id="resultTraits" class="traits"></div></div>
 
@@ -64,6 +64,6 @@
     <div class="share-preview-actions"><button class="secondary" id="returnToDesign">返回调整</button><button class="primary" id="saveSharePoster">保存到本地</button></div>
   </dialog>
   <div id="saveToast" class="save-toast" role="status" aria-live="polite" hidden></div>
-  <script src="assets/lunar.js"></script><script src="poem-couplets.js?v=7"></script><script src="app.js?v=17"></script>
+  <script src="assets/lunar.js"></script><script src="poem-couplets.js?v=7"></script><script src="app.js?v=18"></script>
 </body>
 </html>
