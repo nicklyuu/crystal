@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101b1c">
   <meta name="description" content="结合性格目标与东方五行，生成专属水晶珠材分析和手串方案。"><title>晶遇 · 找到与你共鸣的水晶</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23101b1c'/%3E%3Cpath d='M16 5 26 14 16 27 6 14Z' fill='none' stroke='%23d8ba80' stroke-width='2'/%3E%3C/svg%3E"><link rel="stylesheet" href="style.css?v=5">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23101b1c'/%3E%3Cpath d='M16 5 26 14 16 27 6 14Z' fill='none' stroke='%23d8ba80' stroke-width='2'/%3E%3C/svg%3E"><link rel="stylesheet" href="style.css?v=6">
 </head>
 <body>
   <div id="appShell">
@@ -54,6 +54,15 @@
       <div class="restart-area"><button class="secondary" id="restartTest">重新测试</button></div>
     </main>
   </section>
+  <div id="designLoading" class="design-loading" hidden role="status" aria-live="polite" aria-label="正在准备专属搭配">
+    <div class="design-loading-card">
+      <div class="crystal-loader" aria-hidden="true"><i></i><i></i><i></i><span>◇</span></div>
+      <p class="eyebrow">CREATING YOUR DESIGN</p>
+      <h2>正在准备你的搭配方案</h2>
+      <div class="loading-copy" aria-hidden="true"><span>读取已选珠材</span><span>整理搭配比例</span><span>生成设计空间</span></div>
+      <div class="loading-progress" aria-hidden="true"><i></i></div>
+    </div>
+  </div>
   <dialog id="detail"><button id="closeDetail" aria-label="关闭">×</button><div id="detailBody"></div></dialog>
   <dialog id="resetConfirm" class="confirm-dialog"><p class="eyebrow">START AGAIN</p><h2>清空当前测试结果？</h2><p>重新测试会清空本次问卷、出生信息和手串搭配，之后无法恢复。</p><div class="dialog-actions"><button class="secondary" id="cancelReset">保留结果</button><button class="primary" id="confirmReset">清空并重新测试</button></div></dialog>
   <dialog id="sharePreview" class="share-preview" aria-labelledby="sharePreviewTitle">
@@ -64,6 +73,6 @@
     <div class="share-preview-actions"><button class="secondary" id="returnToDesign">返回调整</button><button class="primary" id="saveSharePoster">保存到本地</button></div>
   </dialog>
   <div id="saveToast" class="save-toast" role="status" aria-live="polite" hidden></div>
-  <script src="assets/lunar.js"></script><script src="poem-couplets.js?v=7"></script><script src="app.js?v=18"></script>
+  <script src="assets/lunar.js"></script><script src="poem-couplets.js?v=7"></script><script src="app.js?v=19"></script>
 </body>
 </html>
